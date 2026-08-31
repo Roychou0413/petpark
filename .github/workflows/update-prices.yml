@@ -1,0 +1,41 @@
+name: Update petpark prices
+
+on:
+  schedule:
+    # GitHub 的 cron 是 UTC。22:00 UTC = 隔日 06:00 台灣時間（每日一次）
+    - cron: '0 22 * * *'
+  workflow_dispatch: {}          # 也可到 Actions 頁面手動執行
+
+permissions:
+  contents: write                # 允許 workflow 推回更新後的 prices.json / history.csv
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run scraper
+        run: python scrape.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "price-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prices.json history.csv
+          if git diff --cached --quiet; then
+            echo "沒有價格變動，略過 commit。"
+          else
+            git commit -m "chore: update prices ($(TZ=Asia/Taipei date +%Y-%m-%d))"
+            git push
+          fi
