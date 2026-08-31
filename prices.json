@@ -1,0 +1,240 @@
+{
+  "generated_at": "2026-08-31T10:02:04.330959+08:00",
+  "generated_at_display": "2026/08/31 10:02（台灣時間 · 初始快照）",
+  "source": "shop.petpark.com.tw",
+  "count": 23,
+  "ok": 23,
+  "fail": 0,
+  "items": {
+    "wp012154": {
+      "sale": 2000,
+      "orig": 2380,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "PetSnowy snow 智能餵食器",
+      "stale": false
+    },
+    "wp015736": {
+      "sale": 2399,
+      "orig": 2669,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Maogougo 按鍵藍芽版",
+      "stale": false
+    },
+    "wp008433": {
+      "sale": 4388,
+      "orig": 6280,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit SOLO 攝影版",
+      "stale": false
+    },
+    "wp015735": {
+      "sale": 4599,
+      "orig": 5119,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Maogougo 視訊5G版",
+      "stale": false
+    },
+    "wp008434": {
+      "sale": 5588,
+      "orig": 8580,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit 雙子星 攝影版",
+      "stale": false
+    },
+    "20853471": {
+      "sale": 7288,
+      "orig": 9480,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit 不鏽鋼餵食器 3L",
+      "stale": false
+    },
+    "20853488": {
+      "sale": 7688,
+      "orig": 9980,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit 不鏽鋼餵食器 5L",
+      "stale": false
+    },
+    "wp012158": {
+      "sale": 12800,
+      "orig": 19800,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "PetSnowy 智慧貓砂盆 除臭款",
+      "stale": false
+    },
+    "wp013007": {
+      "sale": 12888,
+      "orig": 16800,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit MAX2 標準版",
+      "stale": false
+    },
+    "wp016808": {
+      "sale": 17688,
+      "orig": 23800,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit MAXPRO2 攝影版",
+      "stale": false
+    },
+    "20761820": {
+      "sale": 130,
+      "orig": 144,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "carno 倉鼠飲水器 LS110",
+      "stale": false
+    },
+    "20780012": {
+      "sale": 499,
+      "orig": 800,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "TOM CAT 簡派飲水機 2.5L",
+      "stale": false
+    },
+    "wp001388": {
+      "sale": 1370,
+      "orig": 1480,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Homerun 無線水泵飲水機三代",
+      "stale": false
+    },
+    "wp010867": {
+      "sale": 1390,
+      "orig": 1390,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Hu'RuRu 無線馬達飲水機",
+      "stale": false
+    },
+    "wp012155": {
+      "sale": 1599,
+      "orig": 1780,
+      "stock": "low",
+      "qty": 1,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "PetSnowy snow 智能飲水機",
+      "stale": false
+    },
+    "wp008599": {
+      "sale": 1880,
+      "orig": 1980,
+      "stock": "out",
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Pawaii 無線飲水機 紅 2L",
+      "stale": false
+    },
+    "wp008960": {
+      "sale": 1980,
+      "orig": 2200,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Peile 水分子智能飲水機 2.2L",
+      "stale": false
+    },
+    "wp012213": {
+      "sale": 1990,
+      "orig": 2210,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Homerun UVC殺菌無線水泵飲水機",
+      "stale": false
+    },
+    "wp016908": {
+      "sale": 1999,
+      "orig": 2290,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "FURBULOUS CUBE 超濾飲水機",
+      "stale": false
+    },
+    "wp008961": {
+      "sale": 2250,
+      "orig": 2520,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Peile 水分子智能飲水機 UV版",
+      "stale": false
+    },
+    "wp019640": {
+      "sale": 2380,
+      "orig": 2650,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "petsee S1 Pro 雙無線飲水機",
+      "stale": false
+    },
+    "wp011051": {
+      "sale": 3888,
+      "orig": 4980,
+      "stock": "out",
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Petkit W4X-UVC 循環活水機",
+      "stale": false
+    },
+    "wp013479": {
+      "sale": 4120,
+      "orig": 4580,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "title": "Mattte UVC無線馬達飲水機 v1.2",
+      "stale": false
+    }
+  }
+}

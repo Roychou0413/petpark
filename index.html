@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>寵物智能家電比較表 · 寵物公園</title>
+<style>
+  :root{
+    --bg:#F2F4F1; --surface:#FFFFFF; --ink:#17201C; --muted:#69736D;
+    --line:#E2E7E1; --line-2:#EDF0EC;
+    --accent:#0C6E5D; --accent-ink:#0A5A4C; --accent-soft:#E4F0EC;
+    --no:#B7BEB8;
+    --shadow:0 1px 2px rgba(23,32,28,.04),0 8px 24px rgba(23,32,28,.05);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Inter","Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums;
+  }
+  .page{max-width:1280px;margin:0 auto;padding:40px 24px 64px}
+
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin:0 0 10px}
+  h1{font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:0 0 12px;font-weight:800}
+  .lead{color:var(--muted);font-size:15px;max-width:74ch;margin:0}
+
+  /* tabs */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 4px;border-bottom:1px solid var(--line);padding-bottom:0}
+  .tab{border:none;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--muted);
+    padding:12px 18px;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1px;transition:.15s;display:flex;align-items:center;gap:8px}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--accent-ink);border-bottom-color:var(--accent)}
+  .tab .n{font-size:12px;font-weight:700;background:var(--accent-soft);color:var(--accent-ink);border-radius:999px;padding:1px 8px}
+  .tab.active .n{background:var(--accent);color:#fff}
+
+  .cathead{margin:26px 0 0}
+  .catsub{color:var(--muted);font-size:14px;max-width:76ch;margin:6px 0 0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:600}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 0 26px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+  .card h3{margin:0 0 6px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .card p{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
+  .card .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+
+  .bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px}
+  .bar .lbl{font-size:12px;color:var(--muted);letter-spacing:.04em;margin-right:2px}
+  .chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--accent)}
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .spacer{flex:1}
+  .sortbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    font:inherit;font-size:13px;padding:7px 14px;border-radius:8px;cursor:pointer;transition:.15s}
+  .sortbtn:hover{border-color:var(--accent)}
+
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-bottom:16px;flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .tick{color:var(--accent);font-weight:800}.cross{color:var(--no);font-weight:800}
+
+  .wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)}
+  table{border-collapse:separate;border-spacing:0;width:100%;min-width:820px}
+  th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line-2)}
+  tbody tr:last-child td, tbody tr:last-child th{border-bottom:none}
+
+  .rowlabel{position:sticky;left:0;z-index:2;background:var(--surface);
+    font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;box-shadow:1px 0 0 var(--line);min-width:120px}
+  .rowlabel .hint{display:block;font-weight:400;color:var(--muted);font-size:11px;margin-top:2px}
+  .corner{position:sticky;left:0;z-index:5;background:var(--surface);box-shadow:1px 0 0 var(--line)}
+
+  thead th{background:var(--surface);border-bottom:2px solid var(--line)}
+  .phead{min-width:198px;width:198px}
+  .imgbox{width:100%;height:128px;border-radius:10px;background:#fff;border:1px solid var(--line-2);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:12px;text-align:center}
+  .imgbox img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+  .imgbox.noimg{background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:12.5px;line-height:1.4;padding:10px;flex-direction:column;gap:2px}
+  .imgbox.noimg .nb{font-size:11px;font-weight:600;opacity:.75}
+  .brandtag{font-size:11px;letter-spacing:.06em;color:var(--muted);font-weight:600;text-transform:uppercase}
+  .pname{font-size:14.5px;font-weight:700;line-height:1.25;margin:3px 0 8px}
+  .price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .price .now{font-size:19px;font-weight:800}
+  .price .was{font-size:12px;color:var(--muted);text-decoration:line-through}
+  .save{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+
+  td .yes{color:var(--accent);font-weight:800;margin-right:2px}
+  td .no{color:var(--no);font-weight:800}
+  td .detail{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+  td .val{font-size:13px}
+  tbody tr:hover td:not(.rowlabel), tbody tr:hover .rowlabel{background:#F7FAF8}
+  tr.key .rowlabel{color:var(--accent-ink)}
+  tr.key td, tr.key .rowlabel{background:var(--accent-soft)}
+  tr.key:hover td:not(.rowlabel), tr.key:hover .rowlabel{background:#DCEBE6}
+
+  .linkbtn{display:inline-block;font-size:12px;font-weight:600;color:var(--accent-ink);
+    border:1px solid var(--accent);border-radius:8px;padding:6px 12px;text-decoration:none;transition:.15s;white-space:nowrap}
+  .linkbtn:hover{background:var(--accent);color:#fff}
+  .linkbtn.dim{color:var(--muted);border-color:var(--line);pointer-events:none}
+
+  footer{margin-top:22px;font-size:12px;color:var(--muted);line-height:1.6}
+  footer b{color:var(--ink)}
+  .hide{display:none}
+  .updated{margin:16px 0 0;font-size:12.5px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 14px;line-height:1.5}
+  .updated b{color:var(--ink)}
+  .updated code{background:var(--accent-soft);color:var(--accent-ink);padding:1px 6px;border-radius:5px;font-size:11.5px}
+  .updated .ul{margin-left:10px;white-space:nowrap}
+  .updated.snap{background:#FBF7EC;border-color:#EADFC2;color:#8A6D2F}
+  .stk{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px}
+  .stk.in{background:var(--accent-soft);color:var(--accent-ink)}
+  .stk.out{background:#F3DEDE;color:#A23B3B}
+  .stk.low{background:#FBF1DF;color:#9A6A16}
+  .stk.stale{background:#EDF0EC;color:#69736D}
+  .chg{display:inline-block;margin-top:6px;margin-left:8px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px}
+  .chg.down{background:var(--accent-soft);color:var(--accent-ink)}
+  .chg.up{background:#F3DEDE;color:#A23B3B}
+
+  @media (max-width:560px){.page{padding:28px 14px 48px}.imgbox{height:104px}}
+  @media (prefers-reduced-motion:no-preference){
+    .wrap,.cards{animation:rise .45s ease both}
+    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">競品分析 · 寵物智能家電</p>
+  <h1>寵物公園 智能家電比較表</h1>
+  <p class="lead">彙整寵物公園三大智能家電分類：自動餵食器、智能貓砂機、自動飲水機，逐款比較價格、核心功能與規格，並附商品圖片。點上方分頁切換分類，各分類可依類型篩選、依價格排序。</p>
+
+  <div class="updated snap" id="updated">⚪ 載入中…</div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="cathead">
+    <div class="meta" id="meta"></div>
+    <p class="catsub" id="catsub"></p>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="bar">
+    <span class="lbl">篩選類型</span>
+    <span id="chips" style="display:contents"></span>
+    <span class="spacer"></span>
+    <button class="sortbtn" id="sortBtn">排序：價格 由低到高 ↑</button>
+  </div>
+
+  <div class="legend">
+    <span><span class="tick">✓</span> 具備此功能</span>
+    <span><span class="cross">✗</span> 無此功能</span>
+    <span>—　原頁未標示</span>
+    <span style="color:var(--accent-ink)">■ 綠底列為關鍵差異</span>
+  </div>
+
+  <div class="wrap">
+    <table id="tbl"><thead><tr id="headRow"></tr></thead><tbody id="body"></tbody></table>
+  </div>
+
+  <footer>
+    <p><b>來源：</b>寵物公園 shop.petpark.com.tw｜擷取日期 2026/08/30｜幣別 TWD。價格為擷取當下之特價／一般價格，實際以商城即時顯示為準。標示「—」的欄位為該商品頁未列出，非代表無此規格或無保固。</p>
+    <p><b>圖片與規格補充：</b>餵食器、貓砂機各款及部分飲水機圖片取自寵物公園商品頁；petsee、Hu'RuRu 改引自零售頁圖片；Peile 沛樂、FURBULOUS、TOM CAT、carno 於搜尋未取得官方圖，暫以品牌名底圖呈現，規格引自品牌／零售公開資料。PetSnowy 系列（餵食器／貓砂盆／飲水機）與 petsee 飲水機為 <b>JollyPet（jollypet.com.tw）</b>亦有販售之同型／同品牌商品，可一併對照自家定價。</p>
+  </footer>
+</div>
+
+<script>
+const PP = n => `https://shop.petpark.com.tw/media/catalog/product/p/r/production_${n}.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=480&width=480&canvas=480:480`;
+const nf = new Intl.NumberFormat('en-US');
+
+/* ============================ DATA ============================ */
+const DATA = {
+  feeder:{
+    tab:'自動餵食器',
+    sub:'共 7 款，涵蓋 Petkit 佩奇、Maogougo、PetSnowy。核心差異在於是否具視訊鏡頭、是否具秤重出糧，以及儲糧容量與材質。',
+    meta:[['商品數','7 款'],['品牌','Petkit・Maogougo・PetSnowy'],['價格帶','$2,000–$7,688']],
+    cards:[
+      ['最平價入手','PetSnowy $2,000、Maogougo 藍芽版 $2,399，App 定時餵食基礎款，無鏡頭。'],
+      ['想遠端看毛孩（視訊）','Petkit SOLO $4,388 最低價；Maogougo 5G $4,599 唯一支援 5G＋記憶卡本地儲存；雙子星 $5,588 雙倉可放兩種飼料。'],
+      ['精準控糧（秤重）','只有 Petkit 不鏽鋼 3L／5L 具「秤重出糧」，但價位最高（$7,288 起）。'],
+      ['材質','僅 Petkit 不鏽鋼款糧桶與食盆皆 304 不鏽鋼，其餘為 ABS 機身＋不鏽鋼／塑膠食盆。'],
+    ],
+    filters:[['all','全部'],['basic','無鏡頭基礎款'],['camera','視訊攝影款'],['scale','秤重不鏽鋼款']],
+    rows:[
+      {k:'type',label:'定位'},
+      {k:'camera',label:'攝影機／視訊',key:1},
+      {k:'weigh',label:'秤重出糧',key:1},
+      {k:'app',label:'App 智能控制'},
+      {k:'voice',label:'語音互動'},
+      {k:'live',label:'即時直播'},
+      {k:'conn',label:'連線方式'},
+      {k:'cap',label:'儲糧容量'},
+      {k:'dual',label:'雙倉設計'},
+      {k:'power',label:'電源'},
+      {k:'food',label:'適用糧食'},
+      {k:'mat',label:'材質'},
+      {k:'size',label:'尺寸 (cm)',hint:'寬×深×高'},
+      {k:'wt',label:'機身重量'},
+      {k:'war',label:'保固'},
+    ],
+    products:[
+      {brand:'PetSnowy',name:'snow 智能餵食器（咖白）',sn:'PetSnowy 餵食器',cats:['basic'],img:'https://img.pchome.com.tw/cs/items/DEAKO6A900IK652/000001_1744706085.jpg',url:'https://shop.petpark.com.tw/wp012154',sale:2000,orig:2380,
+       a:{type:'基礎款',camera:false,weigh:false,app:{t:'定時餵食·紀錄·缺糧/乾燥劑提醒'},voice:false,live:false,conn:'Wi-Fi',cap:'4L（食盆0.7L）',dual:false,power:'插電＋4×AA電池',food:'乾糧 5–15mm（防卡糧）',mat:'ABS',size:'31.7 × 20 × 33.5',wt:'2.4 kg',war:'—'}},
+      {brand:'Maogougo',name:'按鍵藍芽版（Kathy SO）',sn:'Maogougo 藍芽版',cats:['basic'],img:PP(597759),url:'https://shop.petpark.com.tw/wp015736',sale:2399,orig:2669,
+       a:{type:'手動＋藍芽',camera:false,weigh:false,app:{t:'藍芽設定餵食計畫（另有手動按鍵）'},voice:{t:'可錄製語音呼喚'},live:false,conn:'藍芽',cap:'4L',dual:false,power:'插電＋電池',food:'乾糧・凍乾',mat:'ABS＋不鏽鋼碗',size:'35 × 18.7 × 35.6',wt:'1.62 kg',war:'—'}},
+      {brand:'Petkit 佩奇',name:'SOLO 攝影版',sn:'Petkit SOLO',cats:['camera'],img:PP(161755),url:'https://shop.petpark.com.tw/wp008433',sale:4388,orig:6280,
+       a:{type:'視訊攝影款',camera:{t:'140°超廣角夜視'},weigh:false,app:{t:'AI 寵物識別'},voice:{t:'雙向語音'},live:{t:'即時直播·一鍵投餵'},conn:'Wi-Fi（不支援5G）',cap:'3L',dual:false,power:'插電（6V⎓2A）',food:'乾糧・凍乾',mat:'ABS＋304不鏽鋼',size:'18.6 × 29.6 × 31.6',wt:'1.7 kg',war:'1 年'}},
+      {brand:'Maogougo',name:'視訊5G版（Kathy Pro X）',sn:'Maogougo 5G',cats:['camera'],img:PP(593301),url:'https://shop.petpark.com.tw/wp015735',sale:4599,orig:5119,
+       a:{type:'視訊攝影款',camera:{t:'高清夜視·移動偵測·記憶卡儲存'},weigh:false,app:{t:'遠端操控'},voice:{t:'雙向語音＋呼喚'},live:{t:'即時直播'},conn:'支援 5G Wi-Fi',cap:'4L',dual:false,power:'插電＋電池',food:'乾糧・凍乾',mat:'ABS＋不鏽鋼',size:'35 × 18.7 × 35.6',wt:'1.62 kg',war:'—'}},
+      {brand:'Petkit 佩奇',name:'雙子星 攝影版',sn:'Petkit 雙子星',cats:['camera'],img:PP(161764),url:'https://shop.petpark.com.tw/wp008434',sale:5588,orig:8580,
+       a:{type:'視訊＋雙倉',camera:{t:'140°超廣角夜視'},weigh:false,app:{t:'AI 寵物識別'},voice:{t:'雙向語音'},live:{t:'即時直播·一鍵投餵'},conn:'Wi-Fi（不支援5G）',cap:'5L（雙倉 2L＋3L）',dual:true,power:'插電（6V⎓2A）',food:'一般・凍乾・純凍乾',mat:'ABS＋304不鏽鋼',size:'24.75 × 29.3 × 36.2',wt:'2.5 kg',war:'1 年'}},
+      {brand:'Petkit 佩奇',name:'不鏽鋼智能餵食器 3L',sn:'Petkit 3L',cats:['scale'],img:PP(161664),url:'https://shop.petpark.com.tw/20853471',sale:7288,orig:9480,
+       a:{type:'秤重不鏽鋼款',camera:false,weigh:{t:'秤重出糧·精準克數'},app:{t:'遠端監控'},voice:false,live:false,conn:'Wi-Fi',cap:'3L',dual:false,power:'插電＋內建鋰電池',food:'乾糧・凍乾（≤1.2cm）',mat:'304不鏽鋼＋ABS（桶＋碗皆不鏽鋼）',size:'33.7 × 22.3 × 28.6',wt:'—',war:'1 年'}},
+      {brand:'Petkit 佩奇',name:'不鏽鋼智能餵食器 5L',sn:'Petkit 5L',cats:['scale'],img:PP(161676),url:'https://shop.petpark.com.tw/20853488',sale:7688,orig:9980,
+       a:{type:'秤重不鏽鋼款',camera:false,weigh:{t:'秤重出糧·精準克數'},app:{t:'遠端監控'},voice:false,live:false,conn:'Wi-Fi',cap:'5L',dual:false,power:'插電＋內建鋰電池',food:'乾糧・凍乾（≤1.2cm）',mat:'304不鏽鋼＋ABS（桶＋碗皆不鏽鋼）',size:'33.7 × 22.3 × 34.8',wt:'—',war:'1 年'}},
+    ],
+  },
+
+  litter:{
+    tab:'智能貓砂機',
+    sub:'共 3 款。Petkit 兩款為滾筒式全自動貓砂機（旗艦 MAXPRO2 帶鏡頭、標準 MAX2 無鏡頭）；PetSnowy 為除臭型智慧貓砂盆，主打 TiO2＋紫外線除菌與自動封袋。',
+    meta:[['商品數','3 款'],['品牌','Petkit・PetSnowy'],['價格帶','$12,800–$17,688']],
+    cards:[
+      ['要看貓咪如廁（鏡頭）','僅 Petkit MAXPRO2（$17,688）內建 210° 魚眼鏡頭，可記錄如廁數據；另兩款無鏡頭。'],
+      ['最強除菌除臭','PetSnowy（$12,800）搭載 TiO2＋紫外線除菌消臭、自動封袋、多貓辨識，10L 集便倉。'],
+      ['CP 值全自動','Petkit MAX2 標準版（$12,888）滾筒全自動、三防砂倉，價位親民且原廠 2 年保固。'],
+      ['集便容量','三款皆 7–10L 集便；MAXPRO2 標榜最長 17 天免鏟、76L 大空間，適合多貓。'],
+    ],
+    filters:[['all','全部'],['camera','攝影款'],['plain','無攝影款']],
+    rows:[
+      {k:'type',label:'類型'},
+      {k:'camera',label:'攝影機／視訊',key:1},
+      {k:'waste',label:'集便容量',key:1},
+      {k:'space',label:'內部空間'},
+      {k:'dispose',label:'打包方式'},
+      {k:'deodor',label:'除臭系統'},
+      {k:'app',label:'App／連線'},
+      {k:'sand',label:'適用貓砂'},
+      {k:'fit',label:'適用貓咪'},
+      {k:'size',label:'尺寸 (cm)',hint:'寬×深×高'},
+      {k:'mat',label:'材質'},
+      {k:'power',label:'電源'},
+      {k:'wt',label:'機身重量'},
+      {k:'war',label:'保固'},
+    ],
+    products:[
+      {brand:'PetSnowy',name:'snow 智慧貓砂盆 除臭款（咖白）',sn:'PetSnowy 貓砂盆',cats:['plain'],img:PP(499282),url:'https://shop.petpark.com.tw/wp012158',sale:12800,orig:19800,
+       a:{type:'除臭型智慧貓砂盆',camera:false,waste:'10L 集便倉',space:'內倉容納 9kg 胖貓·體積83L',dispose:{t:'自動封袋'},deodor:{t:'TiO2＋紫外線除菌消臭'},app:{t:'App 監測操控·Wi-Fi 2.4G'},sand:'—',fit:'全齡',size:'75 × 50.8 × 65',mat:'ABS',power:'DC 12V/1.5A',wt:'14.64 kg',war:'1 年'}},
+      {brand:'Petkit 佩奇',name:'全自動智能貓砂機 MAX2 標準版',sn:'Petkit MAX2',cats:['plain'],img:PP(503223),url:'https://shop.petpark.com.tw/wp013007',sale:12888,orig:16800,
+       a:{type:'滾筒全自動·標準版',camera:false,waste:'7L 集便盒',space:'內筒 48×52×52cm',dispose:{t:'磁吸傾砂板'},deodor:{t:'除臭小方2.0（淨味器需另購）'},app:{t:'App·Wi-Fi'},sand:'礦砂・豆腐砂・混合砂',fit:'6個月以上·1.5–10kg',size:'62 × 53.8 × 55.2',mat:'PP・ABS・TPE',power:'12V/2A',wt:'約 10 kg',war:'2 年（原廠）'}},
+      {brand:'Petkit 佩奇',name:'全自動智能貓砂機 MAXPRO2 攝影版',sn:'Petkit MAXPRO2',cats:['camera'],img:PP(618193),url:'https://shop.petpark.com.tw/wp016808',sale:17688,orig:23800,
+       a:{type:'滾筒全自動·攝影旗艦',camera:{t:'210° 魚眼·記錄如廁數據'},waste:'8L 集便盒·最長17天',space:'76L 大空間·入口擴大43%',dispose:{t:'手動抽繩打包'},deodor:{t:'新風淨味系統'},app:{t:'App·Wi-Fi'},sand:'礦砂・豆腐砂・混合砂',fit:'6個月以上·1.5–10kg',size:'65.7 × 53.8 × 60.3',mat:'PP・ABS・TPE・矽膠',power:'12V/2A',wt:'—',war:'1 年（原廠）'}},
+    ],
+  },
+
+  fountain:{
+    tab:'自動飲水機',
+    sub:'共 13 款，價差極大（$130–$4,120）。核心差異在於是否具 UVC／UV 殺菌、過濾方式（一般濾芯 vs 超濾）、是否無線續航，以及是否支援 App。含 1 款小動物用滴水瓶（carno）為分類內項目一併列出。',
+    meta:[['商品數','13 款'],['品牌','11 個品牌'],['價格帶','$130–$4,120']],
+    cards:[
+      ['要 UVC／UV 殺菌','Pawaii、Homerun UVC、Peile UV、petsee、Petkit W4X、Mattte 具紫外線殺菌（99.9% 起）；FURBULOUS 改採 0.01μm 超濾。'],
+      ['App 智能監控','PetSnowy snow（$1,599）與 Petkit W4X-UVC（$3,888）支援 App 監測操控；Petkit 另可遠端切換出水模式、查看濾心壽命與缺水提醒。'],
+      ['無線續航最長','petsee 雙無線 6000mAh 續航約 90 天；Pawaii 60 天；多數無線款採分離式馬達、水電分離更安全。'],
+      ['預算有限','Homerun 三代（$1,370）、Hu\'RuRu（$1,390）無線靜音、好清洗但無殺菌；TOM CAT（$499）為有線入門款。'],
+    ],
+    filters:[['all','全部'],['sterile','殺菌款'],['plain','一般款'],['app','App 智能']],
+    rows:[
+      {k:'type',label:'定位'},
+      {k:'sterile',label:'UVC／UV 殺菌',key:1},
+      {k:'filter',label:'過濾方式'},
+      {k:'wireless',label:'無線／續航',key:1},
+      {k:'pump',label:'泵浦'},
+      {k:'app',label:'App 智能'},
+      {k:'mode',label:'出水模式'},
+      {k:'cap',label:'水箱容量'},
+      {k:'mat',label:'材質'},
+      {k:'noise',label:'運轉噪音'},
+      {k:'size',label:'尺寸 (cm)',hint:'寬×深×高'},
+      {k:'wt',label:'機身重量'},
+      {k:'war',label:'保固'},
+    ],
+    products:[
+      {brand:'carno 卡諾',name:'倉鼠飲水器 LS110（80ml）',sn:'carno 倉鼠飲水器',cats:['plain'],img:null,url:'https://shop.petpark.com.tw/20761820',sale:130,orig:144,
+       a:{type:'小動物滴水瓶',sterile:false,filter:'—',wireless:false,pump:false,app:false,mode:'重力滴水',cap:'80 ml',mat:'—',noise:'—',size:'8 × 8 × 17',wt:'—',war:'—'}},
+      {brand:'TOM CAT',name:'簡派飲水機 白 2.5L',sn:'TOM CAT 簡派',cats:['plain'],img:null,url:'https://shop.petpark.com.tw/20780012',sale:499,orig:800,
+       a:{type:'有線入門款',sterile:false,filter:'基礎濾芯',wireless:false,pump:{t:'有線馬達'},app:false,mode:'循環',cap:'2.5L',mat:'—',noise:'—',size:'20 × 20 × 15.3',wt:'—',war:'—'}},
+      {brand:'Homerun 霍曼',name:'無線水泵寵物飲水機三代',sn:'Homerun 三代',cats:['plain'],img:PP(503592),url:'https://shop.petpark.com.tw/wp001388',sale:1370,orig:1480,
+       a:{type:'無線水泵',sterile:false,filter:'濾芯＋濾棉',wireless:{t:'無線水泵·底吸'},pump:{t:'無線水泵'},app:false,mode:'循環',cap:'2L',mat:'ABS',noise:'<20 dB',size:'19.3 × 19.3 × 14.9',wt:'1.06 kg',war:'1 年'}},
+      {brand:'Hu\'RuRu 咕嚕嚕',name:'無線馬達寵物飲水機 珍珠白',sn:'Hu\'RuRu 飲水機',cats:['plain'],img:'https://img.shoplineapp.com/media/image_clips/646710b6392d890014162eeb/original.jpg?1684476086',url:'https://shop.petpark.com.tw/wp010867',sale:1390,orig:null,
+       a:{type:'磁感應無線',sterile:false,filter:'雙效濾芯＋濾篩盤',wireless:{t:'磁感應供電'},pump:{t:'無線馬達（可拆）'},app:false,mode:'循環',cap:'2L',mat:'食品級 ABS',noise:'45 dB',size:'17 × 17 × 14.5',wt:'750 g',war:'1 年'}},
+      {brand:'PetSnowy',name:'snow 寵物智能飲水機（咖白）',sn:'PetSnowy 飲水機',cats:['plain','app'],img:PP(499279),url:'https://shop.petpark.com.tw/wp012155',sale:1599,orig:1780,
+       a:{type:'App 智能·水電分離',sterile:false,filter:'—',wireless:false,pump:{t:'水電分離設計'},app:{t:'App 監測操控'},mode:'—',cap:'2L',mat:'—',noise:'<35 dB',size:'19 × 19 × 15.5',wt:'1.04 kg',war:'1 年'}},
+      {brand:'Pawaii 怡爪',name:'無線飲水機 紅 2L',sn:'Pawaii 無線飲水機',cats:['sterile'],img:PP(365201),url:'https://shop.petpark.com.tw/wp008599',sale:1880,orig:1980,
+       a:{type:'UVC 無線·紅點獎',sterile:{t:'UVC 99.9%'},filter:'七道過濾（NSF 認證）',wireless:{t:'60 天續航·5000mAh'},pump:{t:'分離式無線馬達'},app:false,mode:'感應／手動／定時',cap:'2L',mat:'HIPS・食品級AS・ABS',noise:'30 dB',size:'26.6 × 14.5 × 15',wt:'850 g',war:'1 年'}},
+      {brand:'Peile 沛樂',name:'水分子智能飲水機 2.2L',sn:'Peile 標準版',cats:['plain'],img:null,url:'https://shop.petpark.com.tw/wp008960',sale:1980,orig:2200,
+       a:{type:'感應無線',sterile:false,filter:'濾心',wireless:{t:'全機無線·免拆洗馬達'},pump:{t:'無線'},app:false,mode:'智能感應出水',cap:'2.2L',mat:'不鏽鋼水盤＋ABS',noise:'—',size:'22.5 × 18.5 × 17.8',wt:'—',war:'—'}},
+      {brand:'Homerun 霍曼',name:'UVC殺菌無線水泵寵物飲水機',sn:'Homerun UVC',cats:['sterile'],img:PP(503588),url:'https://shop.petpark.com.tw/wp012213',sale:1990,orig:2210,
+       a:{type:'UVC 殺菌·陶瓷蓋',sterile:{t:'UVC 抑菌 99.9%'},filter:'濾芯＋濾棉',wireless:{t:'無線水泵'},pump:{t:'UVC 殺菌無線水泵'},app:false,mode:'循環',cap:'2L',mat:'ABS＋食品級陶瓷（可放洗碗機）',noise:'<20 dB',size:'19.3 × 19.3 × 14.9',wt:'1.41 kg',war:'1 年'}},
+      {brand:'FURBULOUS',name:'CUBE 寵物超濾飲水機 米白',sn:'FURBULOUS CUBE',cats:['plain'],img:null,url:'https://shop.petpark.com.tw/wp016908',sale:1999,orig:2290,
+       a:{type:'超濾技術',sterile:false,filter:{t:'超濾 UF 0.01μm 中空纖維膜'},wireless:false,pump:{t:'靜音水泵·水電分離 IPX6'},app:false,mode:'兩種出水模式',cap:'3.3L',mat:'316 不鏽鋼＋BPA-free ABS',noise:'靜音',size:'—',wt:'—',war:'—'}},
+      {brand:'Peile 沛樂',name:'水分子智能飲水機 UV版 2.2L',sn:'Peile UV版',cats:['sterile'],img:null,url:'https://shop.petpark.com.tw/wp008961',sale:2250,orig:2520,
+       a:{type:'UV 殺菌·感應無線',sterile:{t:'UV 殺菌（UV版）'},filter:'濾心',wireless:{t:'全機無線·免拆洗馬達'},pump:{t:'無線'},app:false,mode:'智能感應出水',cap:'2.2L',mat:'不鏽鋼水盤＋ABS',noise:'—',size:'22.5 × 18.5 × 17.8',wt:'—',war:'—'}},
+      {brand:'petsee',name:'S1 Pro 雙無線自動飲水機 白',sn:'petsee S1 Pro',cats:['sterile'],img:'https://img.pchome.com.tw/cs/items/DEAK9IA900JTTPF/000001_1773820954.jpg',url:'https://shop.petpark.com.tw/wp019640',sale:2380,orig:2650,
+       a:{type:'雙無線 UVC（JollyPet）',sterile:{t:'UVC 99.9%'},filter:'濾心',wireless:{t:'雙無線 6000mAh·續航約90天'},pump:{t:'雙無線·水電分離'},app:false,mode:'多種出水模式',cap:'—',mat:'—',noise:'—',size:'24 × 16 × 17.7',wt:'—',war:'—'}},
+      {brand:'Petkit 佩奇',name:'智能循環活水機 W4X-UVC（無線馬達）',sn:'Petkit W4X-UVC',cats:['sterile','app'],img:PP(503219),url:'https://shop.petpark.com.tw/wp011051',sale:3888,orig:4980,
+       a:{type:'UVC＋App 智能',sterile:{t:'UVC 99.96%'},filter:'濾心（App 查壽命）',wireless:{t:'無線馬達'},pump:{t:'UVC 殺菌無線馬達'},app:{t:'遠端切換模式·查濾心·缺水提醒'},mode:'智能間歇／持續',cap:'1.8L（8–10 天）',mat:'304不鏽鋼內缸＋ABS・矽膠・PP',noise:'靜音湧泉',size:'19.5 × 19.5 × 14.8',wt:'—',war:'1 年'}},
+      {brand:'Mattte',name:'UVC無線馬達寵物飲水機 v1.2 寂靜黑',sn:'Mattte v1.2',cats:['sterile'],img:PP(536157),url:'https://shop.petpark.com.tw/wp013479',sale:4120,orig:4580,
+       a:{type:'UVC 旗艦·紅點獎',sterile:{t:'UVC 99.9%'},filter:'4 重過濾（餘氯·重金屬）',wireless:{t:'無線馬達·Type-C'},pump:{t:'無線馬達'},app:false,mode:'低水位示警·自動止停',cap:'1.8L',mat:'不鏽鋼＋食品級AS＋ABS（無塗層）',noise:'30 dB',size:'17 × 27 × 14.9',wt:'—',war:'1 年'}},
+    ],
+  },
+};
+
+/* ============================ RENDER ============================ */
+let active='feeder', order='asc', filterState={feeder:'all',litter:'all',fountain:'all'}, LIVE={};
+
+function cell(v){
+  if(v===true) return `<span class="yes">✓</span>`;
+  if(v===false) return `<span class="no">✗</span>`;
+  if(v && typeof v==='object') return `<span class="yes">✓</span>${v.t?`<span class="detail">${v.t}</span>`:''}`;
+  return `<span class="val">${v}</span>`;
+}
+function catMatch(p){const f=filterState[active];return f==='all'||p.cats.includes(f);}
+
+function renderTabs(){
+  document.getElementById('tabs').innerHTML = Object.keys(DATA).map(k=>{
+    const d=DATA[k];
+    return `<button class="tab ${k===active?'active':''}" data-k="${k}">${d.tab}<span class="n">${d.products.length}</span></button>`;
+  }).join('');
+  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{active=t.dataset.k;order='asc';renderAll();});
+}
+
+function renderAll(){
+  const d=DATA[active];
+  renderTabs();
+  document.getElementById('meta').innerHTML = d.meta.map(m=>`<span>${m[0]}：<b>${m[1]}</b></span>`).join('');
+  document.getElementById('catsub').textContent = d.sub;
+  document.getElementById('cards').innerHTML = d.cards.map(c=>`<div class="card"><h3><span class="dot"></span>${c[0]}</h3><p>${c[1]}</p></div>`).join('');
+  document.getElementById('chips').innerHTML = d.filters.map(f=>`<button class="chip ${filterState[active]===f[0]?'active':''}" data-cat="${f[0]}">${f[1]}</button>`).join('');
+  document.querySelectorAll('#chips .chip').forEach(ch=>ch.onclick=()=>{filterState[active]=ch.dataset.cat;renderAll();});
+  document.getElementById('sortBtn').textContent = order==='asc'?'排序：價格 由低到高 ↑':'排序：價格 由高到低 ↓';
+
+  const list=d.products.slice().sort((a,b)=> order==='asc'?a.sale-b.sale:b.sale-a.sale);
+
+  document.getElementById('headRow').innerHTML = `<th class="corner"></th>` + list.map(p=>{
+    const off=Math.round((1-p.sale/p.orig)*100);
+    const img = p.img
+      ? `<div class="imgbox"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.parentNode.innerHTML='${p.brand}<span class=&quot;nb&quot;>${p.sn}</span>'"></div>`
+      : `<div class="imgbox noimg">${p.brand}<span class="nb">${p.sn}</span></div>`;
+    const price = (p.orig && p.orig>p.sale)
+      ? `<div class="price"><span class="now">$${nf.format(p.sale)}</span><span class="was">$${nf.format(p.orig)}</span></div><div class="save">省 $${nf.format(p.orig-p.sale)}・−${off}%</div>`
+      : `<div class="price"><span class="now">$${nf.format(p.sale)}</span></div>`;
+    return `<th class="phead ${catMatch(p)?'':'hide'}" data-id="${p.url}">${img}<div class="brandtag">${p.brand}</div><div class="pname">${p.name}</div>${price}${stockBadge(p)}${changeNote(p)}</th>`;
+  }).join('');
+
+  let html = d.rows.map(r=>{
+    const cells=list.map(p=>`<td class="${catMatch(p)?'':'hide'}" data-id="${p.url}">${cell(p.a[r.k])}</td>`).join('');
+    return `<tr class="${r.key?'key':''}"><th class="rowlabel">${r.label}${r.hint?`<span class="hint">${r.hint}</span>`:''}</th>${cells}</tr>`;
+  }).join('');
+  const links=list.map(p=>`<td class="${catMatch(p)?'':'hide'}" data-id="${p.url}"><a class="linkbtn" href="${p.url}" target="_blank" rel="noopener">前往商品頁 ↗</a></td>`).join('');
+  html += `<tr><th class="rowlabel">商品頁</th>${links}</tr>`;
+  document.getElementById('body').innerHTML = html;
+}
+
+document.getElementById('sortBtn').addEventListener('click',()=>{order=order==='asc'?'desc':'asc';renderAll();});
+/* ---- live prices (loaded from prices.json, same-origin → no CORS) ---- */
+function keyOf(p){return p.url.split('/').pop();}
+function stockBadge(p){
+  if(p.stale) return `<span class="stk stale" title="本次更新未取得，顯示前次資料">價格待更新</span>`;
+  if(p.stock==='out') return `<span class="stk out">無庫存</span>`;
+  if(p.stock==='low') return `<span class="stk low">${p.qty?('僅剩 '+p.qty):'庫存緊張'}</span>`;
+  if(p.stock==='in') return `<span class="stk in">有庫存</span>`;
+  return '';
+}
+function changeNote(p){
+  if(typeof p.prevSale==='number' && typeof p.sale==='number' && p.prevSale!==p.sale){
+    const diff=p.sale-p.prevSale, up=diff>0;
+    return `<span class="chg ${up?'up':'down'}">${up?'▲':'▼'} $${nf.format(Math.abs(diff))}${p.lastChange?' · '+p.lastChange:''}</span>`;
+  }
+  return '';
+}
+function applyLive(){
+  Object.keys(DATA).forEach(c=>DATA[c].products.forEach(p=>{
+    const L=LIVE[keyOf(p)]; if(!L) return;
+    if(typeof L.sale==='number') p.sale=L.sale;
+    if(typeof L.orig==='number') p.orig=L.orig;
+    p.stock=L.stock; p.qty=L.qty; p.prevSale=L.prev_sale; p.lastChange=L.last_change; p.stale=!!L.stale;
+  }));
+}
+function showUpdated(disp, ok){
+  const el=document.getElementById('updated'); if(!el) return;
+  if(ok){el.className='updated live';
+    el.innerHTML=`🟢 即時價格 · 資料更新時間 <b>${disp}</b>（每日自動更新）<span class="ul">▼ 綠：較前次降價</span><span class="ul">▲ 紅：漲價</span>`;}
+  else{el.className='updated snap';
+    el.innerHTML=`⚪ 目前為靜態快照（未載入即時價格）。將此檔與 <code>prices.json</code> 一同發佈到 GitHub Pages（同一網址）後，即會顯示每日更新的價格與庫存。`;}
+}
+async function loadPrices(){
+  try{
+    const r=await fetch('prices.json?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw 0;
+    const d=await r.json();
+    LIVE=d.items||{};
+    applyLive(); renderAll();
+    showUpdated(d.generated_at_display||d.generated_at||'', true);
+  }catch(e){ showUpdated(null,false); }
+}
+renderAll();
+loadPrices();
+</script>
+</body>
+</html>
