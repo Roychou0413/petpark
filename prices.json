@@ -1,9 +1,11 @@
 {
-  "generated_at": "2026-08-31T10:02:04.330959+08:00",
-  "generated_at_display": "2026/08/31 10:02（台灣時間 · 初始快照）",
+  "generated_at": "2026-08-31T16:18:25.253231+08:00",
+  "generated_at_display": "2026/08/31 16:18（台灣時間 · 初始快照）",
   "source": "shop.petpark.com.tw",
-  "count": 23,
-  "ok": 23,
+  "count": 26,
+  "listed": 23,
+  "delisted": 3,
+  "ok": 26,
   "fail": 0,
   "items": {
     "wp012154": {
@@ -13,6 +15,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "PetSnowy snow 智能餵食器",
       "stale": false
     },
@@ -23,6 +27,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "Maogougo 按鍵藍芽版",
       "stale": false
     },
@@ -33,6 +39,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "Petkit SOLO 攝影版",
       "stale": false
     },
@@ -43,6 +51,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "Maogougo 視訊5G版",
       "stale": false
     },
@@ -53,6 +63,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "Petkit 雙子星 攝影版",
       "stale": false
     },
@@ -63,6 +75,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "Petkit 不鏽鋼餵食器 3L",
       "stale": false
     },
@@ -73,6 +87,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "feeder",
       "title": "Petkit 不鏽鋼餵食器 5L",
       "stale": false
     },
@@ -83,6 +99,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "litter",
       "title": "PetSnowy 智慧貓砂盆 除臭款",
       "stale": false
     },
@@ -93,6 +111,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "litter",
       "title": "Petkit MAX2 標準版",
       "stale": false
     },
@@ -103,6 +123,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "litter",
       "title": "Petkit MAXPRO2 攝影版",
       "stale": false
     },
@@ -113,6 +135,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "carno 倉鼠飲水器 LS110",
       "stale": false
     },
@@ -123,6 +147,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "TOM CAT 簡派飲水機 2.5L",
       "stale": false
     },
@@ -133,7 +159,21 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "Homerun 無線水泵飲水機三代",
+      "stale": false
+    },
+    "wp006712": {
+      "sale": 1388,
+      "orig": 2080,
+      "stock": "low",
+      "qty": 1,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "fountain",
+      "title": "Petkit SOLO SE 無線馬達",
       "stale": false
     },
     "wp010867": {
@@ -143,6 +183,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "Hu'RuRu 無線馬達飲水機",
       "stale": false
     },
@@ -153,6 +195,8 @@
       "qty": 1,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "PetSnowy snow 智能飲水機",
       "stale": false
     },
@@ -163,6 +207,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": false,
+      "category": "fountain",
       "title": "Pawaii 無線飲水機 紅 2L",
       "stale": false
     },
@@ -173,6 +219,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "Peile 水分子智能飲水機 2.2L",
       "stale": false
     },
@@ -183,6 +231,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "Homerun UVC殺菌無線水泵飲水機",
       "stale": false
     },
@@ -193,6 +243,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": false,
+      "category": "fountain",
       "title": "FURBULOUS CUBE 超濾飲水機",
       "stale": false
     },
@@ -203,7 +255,21 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "Peile 水分子智能飲水機 UV版",
+      "stale": false
+    },
+    "wp005304": {
+      "sale": 2388,
+      "orig": 2980,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "fountain",
+      "title": "Petkit SOLO 2 無線馬達",
       "stale": false
     },
     "wp019640": {
@@ -213,7 +279,21 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "petsee S1 Pro 雙無線飲水機",
+      "stale": false
+    },
+    "wp011970": {
+      "sale": 3688,
+      "orig": 5880,
+      "stock": null,
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "fountain",
+      "title": "Petkit MAX 真無線",
       "stale": false
     },
     "wp011051": {
@@ -223,6 +303,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": false,
+      "category": "fountain",
       "title": "Petkit W4X-UVC 循環活水機",
       "stale": false
     },
@@ -233,6 +315,8 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
+      "listed": true,
+      "category": "fountain",
       "title": "Mattte UVC無線馬達飲水機 v1.2",
       "stale": false
     }

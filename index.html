@@ -114,6 +114,9 @@
   .chg{display:inline-block;margin-top:6px;margin-left:8px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px}
   .chg.down{background:var(--accent-soft);color:var(--accent-ink)}
   .chg.up{background:#F3DEDE;color:#A23B3B}
+  .stk.gone{background:#E7E2E2;color:#6E5E5E}
+  .phead.gone .imgbox{opacity:.5;filter:grayscale(.45)}
+  .phead.gone .pname{color:var(--muted)}
 
   @media (max-width:560px){.page{padding:28px 14px 48px}.imgbox{height:104px}}
   @media (prefers-reduced-motion:no-preference){
@@ -254,12 +257,12 @@ const DATA = {
 
   fountain:{
     tab:'自動飲水機',
-    sub:'共 13 款，價差極大（$130–$4,120）。核心差異在於是否具 UVC／UV 殺菌、過濾方式（一般濾芯 vs 超濾）、是否無線續航，以及是否支援 App。含 1 款小動物用滴水瓶（carno）為分類內項目一併列出。',
-    meta:[['商品數','13 款'],['品牌','11 個品牌'],['價格帶','$130–$4,120']],
+    sub:'共 16 款（含 3 款已下架），價差極大（$130–$4,120）。核心差異在於是否具 UVC／UV 殺菌、過濾方式（一般濾芯 vs 超濾）、是否無線續航，以及是否支援 App。含 1 款小動物用滴水瓶（carno）為分類內項目一併列出。',
+    meta:[['商品數','16 款（現售13·已下架3）'],['品牌','11 個品牌'],['價格帶','$130–$4,120']],
     cards:[
-      ['要 UVC／UV 殺菌','Pawaii、Homerun UVC、Peile UV、petsee、Petkit W4X、Mattte 具紫外線殺菌（99.9% 起）；FURBULOUS 改採 0.01μm 超濾。'],
-      ['App 智能監控','PetSnowy snow（$1,599）與 Petkit W4X-UVC（$3,888）支援 App 監測操控；Petkit 另可遠端切換出水模式、查看濾心壽命與缺水提醒。'],
-      ['無線續航最長','petsee 雙無線 6000mAh 續航約 90 天；Pawaii 60 天；多數無線款採分離式馬達、水電分離更安全。'],
+      ['要 UVC／UV 殺菌','現售具紫外線殺菌的有 Homerun UVC、Peile UV、petsee、Mattte（99.9% 起）；Pawaii、FURBULOUS、Petkit W4X 已下架（表中標示）。'],
+      ['App 智能監控','現售支援 App 的有 PetSnowy snow（$1,599）、Petkit SOLO 2（$2,388）、Petkit MAX 真無線（$3,688）；可遠端切換出水、查看濾心壽命與喝水數據。'],
+      ['無線續航最長','petsee 雙無線約 90 天、Petkit MAX 真無線 83 天（5000mAh）；多數無線款採分離式馬達、水電分離更安全。'],
       ['預算有限','Homerun 三代（$1,370）、Hu\'RuRu（$1,390）無線靜音、好清洗但無殺菌；TOM CAT（$499）為有線入門款。'],
     ],
     filters:[['all','全部'],['sterile','殺菌款'],['plain','一般款'],['app','App 智能']],
@@ -289,22 +292,28 @@ const DATA = {
        a:{type:'磁感應無線',sterile:false,filter:'雙效濾芯＋濾篩盤',wireless:{t:'磁感應供電'},pump:{t:'無線馬達（可拆）'},app:false,mode:'循環',cap:'2L',mat:'食品級 ABS',noise:'45 dB',size:'17 × 17 × 14.5',wt:'750 g',war:'1 年'}},
       {brand:'PetSnowy',name:'snow 寵物智能飲水機（咖白）',sn:'PetSnowy 飲水機',cats:['plain','app'],img:PP(499279),url:'https://shop.petpark.com.tw/wp012155',sale:1599,orig:1780,
        a:{type:'App 智能·水電分離',sterile:false,filter:'—',wireless:false,pump:{t:'水電分離設計'},app:{t:'App 監測操控'},mode:'—',cap:'2L',mat:'—',noise:'<35 dB',size:'19 × 19 × 15.5',wt:'1.04 kg',war:'1 年'}},
-      {brand:'Pawaii 怡爪',name:'無線飲水機 紅 2L',sn:'Pawaii 無線飲水機',cats:['sterile'],img:PP(365201),url:'https://shop.petpark.com.tw/wp008599',sale:1880,orig:1980,
+      {brand:'Pawaii 怡爪',name:'無線飲水機 紅 2L',sn:'Pawaii 無線飲水機',cats:['sterile'],listed:false,img:PP(365201),url:'https://shop.petpark.com.tw/wp008599',sale:1880,orig:1980,
        a:{type:'UVC 無線·紅點獎',sterile:{t:'UVC 99.9%'},filter:'七道過濾（NSF 認證）',wireless:{t:'60 天續航·5000mAh'},pump:{t:'分離式無線馬達'},app:false,mode:'感應／手動／定時',cap:'2L',mat:'HIPS・食品級AS・ABS',noise:'30 dB',size:'26.6 × 14.5 × 15',wt:'850 g',war:'1 年'}},
       {brand:'Peile 沛樂',name:'水分子智能飲水機 2.2L',sn:'Peile 標準版',cats:['plain'],img:null,url:'https://shop.petpark.com.tw/wp008960',sale:1980,orig:2200,
        a:{type:'感應無線',sterile:false,filter:'濾心',wireless:{t:'全機無線·免拆洗馬達'},pump:{t:'無線'},app:false,mode:'智能感應出水',cap:'2.2L',mat:'不鏽鋼水盤＋ABS',noise:'—',size:'22.5 × 18.5 × 17.8',wt:'—',war:'—'}},
       {brand:'Homerun 霍曼',name:'UVC殺菌無線水泵寵物飲水機',sn:'Homerun UVC',cats:['sterile'],img:PP(503588),url:'https://shop.petpark.com.tw/wp012213',sale:1990,orig:2210,
        a:{type:'UVC 殺菌·陶瓷蓋',sterile:{t:'UVC 抑菌 99.9%'},filter:'濾芯＋濾棉',wireless:{t:'無線水泵'},pump:{t:'UVC 殺菌無線水泵'},app:false,mode:'循環',cap:'2L',mat:'ABS＋食品級陶瓷（可放洗碗機）',noise:'<20 dB',size:'19.3 × 19.3 × 14.9',wt:'1.41 kg',war:'1 年'}},
-      {brand:'FURBULOUS',name:'CUBE 寵物超濾飲水機 米白',sn:'FURBULOUS CUBE',cats:['plain'],img:null,url:'https://shop.petpark.com.tw/wp016908',sale:1999,orig:2290,
+      {brand:'FURBULOUS',name:'CUBE 寵物超濾飲水機 米白',sn:'FURBULOUS CUBE',cats:['plain'],listed:false,img:null,url:'https://shop.petpark.com.tw/wp016908',sale:1999,orig:2290,
        a:{type:'超濾技術',sterile:false,filter:{t:'超濾 UF 0.01μm 中空纖維膜'},wireless:false,pump:{t:'靜音水泵·水電分離 IPX6'},app:false,mode:'兩種出水模式',cap:'3.3L',mat:'316 不鏽鋼＋BPA-free ABS',noise:'靜音',size:'—',wt:'—',war:'—'}},
       {brand:'Peile 沛樂',name:'水分子智能飲水機 UV版 2.2L',sn:'Peile UV版',cats:['sterile'],img:null,url:'https://shop.petpark.com.tw/wp008961',sale:2250,orig:2520,
        a:{type:'UV 殺菌·感應無線',sterile:{t:'UV 殺菌（UV版）'},filter:'濾心',wireless:{t:'全機無線·免拆洗馬達'},pump:{t:'無線'},app:false,mode:'智能感應出水',cap:'2.2L',mat:'不鏽鋼水盤＋ABS',noise:'—',size:'22.5 × 18.5 × 17.8',wt:'—',war:'—'}},
       {brand:'petsee',name:'S1 Pro 雙無線自動飲水機 白',sn:'petsee S1 Pro',cats:['sterile'],img:'https://img.pchome.com.tw/cs/items/DEAK9IA900JTTPF/000001_1773820954.jpg',url:'https://shop.petpark.com.tw/wp019640',sale:2380,orig:2650,
        a:{type:'雙無線 UVC（JollyPet）',sterile:{t:'UVC 99.9%'},filter:'濾心',wireless:{t:'雙無線 6000mAh·續航約90天'},pump:{t:'雙無線·水電分離'},app:false,mode:'多種出水模式',cap:'—',mat:'—',noise:'—',size:'24 × 16 × 17.7',wt:'—',war:'—'}},
-      {brand:'Petkit 佩奇',name:'智能循環活水機 W4X-UVC（無線馬達）',sn:'Petkit W4X-UVC',cats:['sterile','app'],img:PP(503219),url:'https://shop.petpark.com.tw/wp011051',sale:3888,orig:4980,
+      {brand:'Petkit 佩奇',name:'智能循環活水機 W4X-UVC（無線馬達）',sn:'Petkit W4X-UVC',cats:['sterile','app'],listed:false,img:PP(503219),url:'https://shop.petpark.com.tw/wp011051',sale:3888,orig:4980,
        a:{type:'UVC＋App 智能',sterile:{t:'UVC 99.96%'},filter:'濾心（App 查壽命）',wireless:{t:'無線馬達'},pump:{t:'UVC 殺菌無線馬達'},app:{t:'遠端切換模式·查濾心·缺水提醒'},mode:'智能間歇／持續',cap:'1.8L（8–10 天）',mat:'304不鏽鋼內缸＋ABS・矽膠・PP',noise:'靜音湧泉',size:'19.5 × 19.5 × 14.8',wt:'—',war:'1 年'}},
       {brand:'Mattte',name:'UVC無線馬達寵物飲水機 v1.2 寂靜黑',sn:'Mattte v1.2',cats:['sterile'],img:PP(536157),url:'https://shop.petpark.com.tw/wp013479',sale:4120,orig:4580,
        a:{type:'UVC 旗艦·紅點獎',sterile:{t:'UVC 99.9%'},filter:'4 重過濾（餘氯·重金屬）',wireless:{t:'無線馬達·Type-C'},pump:{t:'無線馬達'},app:false,mode:'低水位示警·自動止停',cap:'1.8L',mat:'不鏽鋼＋食品級AS＋ABS（無塗層）',noise:'30 dB',size:'17 × 27 × 14.9',wt:'—',war:'1 年'}},
+      {brand:'Petkit 佩奇',name:'循環活水機 SOLO SE（無線馬達）',sn:'Petkit SOLO SE',cats:['plain'],img:PP(161728),url:'https://shop.petpark.com.tw/wp006712',sale:1388,orig:2080,
+       a:{type:'無線馬達·入門',sterile:false,filter:'四重過濾',wireless:{t:'無線馬達'},pump:{t:'無線馬達·水電分離'},app:false,mode:'湧泉',cap:'1.8L',mat:'ABS・矽膠',noise:'—',size:'16 × 16 × 15.4',wt:'—',war:'1 年'}},
+      {brand:'Petkit 佩奇',name:'循環活水機 SOLO 2（無線馬達）',sn:'Petkit SOLO 2',cats:['plain','app'],img:'https://img.pchome.com.tw/cs/items/DEAKR3A900G7WJL/000001_1767601042.jpg',url:'https://shop.petpark.com.tw/wp005304',sale:2388,orig:2980,
+       a:{type:'無線馬達·App',sterile:false,filter:'三重過濾（活性碳·離子交換）',wireless:{t:'無線馬達'},pump:{t:'無線馬達·水電分離'},app:{t:'藍牙·遠端切換出水/查濾心'},mode:'智能間歇／持續',cap:'2L（8–10天）',mat:'ABS・矽膠',noise:'<35 dB',size:'18.5 × 18.5 × 16.4',wt:'900 g',war:'1 年'}},
+      {brand:'Petkit 佩奇',name:'循環活水機 MAX（真無線）',sn:'Petkit MAX 真無線',cats:['plain','app'],img:'https://img.pchome.com.tw/cs/items/DEAK9IA900HNQEL/000001_1720852105.jpg',url:'https://shop.petpark.com.tw/wp011970',sale:3688,orig:5880,
+       a:{type:'真無線·App·大容量',sterile:false,filter:'複合濾心（燒結活性碳）',wireless:{t:'真無線·83天'},pump:{t:'真無線·水電分離'},app:{t:'藍牙·AI喝水數據·遠端操控'},mode:'標準／間歇可調',cap:'3L（水箱3.2L）',mat:'ABS・304不鏽鋼',noise:'26 dB',size:'17.1 × 26.5 × 19.1',wt:'1.2 kg',war:'1 年'}},
     ],
   },
 };
@@ -348,7 +357,7 @@ function renderAll(){
     const price = (p.orig && p.orig>p.sale)
       ? `<div class="price"><span class="now">$${nf.format(p.sale)}</span><span class="was">$${nf.format(p.orig)}</span></div><div class="save">省 $${nf.format(p.orig-p.sale)}・−${off}%</div>`
       : `<div class="price"><span class="now">$${nf.format(p.sale)}</span></div>`;
-    return `<th class="phead ${catMatch(p)?'':'hide'}" data-id="${p.url}">${img}<div class="brandtag">${p.brand}</div><div class="pname">${p.name}</div>${price}${stockBadge(p)}${changeNote(p)}</th>`;
+    return `<th class="phead ${catMatch(p)?'':'hide'} ${p.listed===false?'gone':''}" data-id="${p.url}">${img}<div class="brandtag">${p.brand}</div><div class="pname">${p.name}</div>${price}${delistedBadge(p)}${stockBadge(p)}${changeNote(p)}</th>`;
   }).join('');
 
   let html = d.rows.map(r=>{
@@ -363,6 +372,7 @@ function renderAll(){
 document.getElementById('sortBtn').addEventListener('click',()=>{order=order==='asc'?'desc':'asc';renderAll();});
 /* ---- live prices (loaded from prices.json, same-origin → no CORS) ---- */
 function keyOf(p){return p.url.split('/').pop();}
+function delistedBadge(p){ return p.listed===false ? `<span class="stk gone">已下架</span>` : ''; }
 function stockBadge(p){
   if(p.stale) return `<span class="stk stale" title="本次更新未取得，顯示前次資料">價格待更新</span>`;
   if(p.stock==='out') return `<span class="stk out">無庫存</span>`;
@@ -382,13 +392,13 @@ function applyLive(){
     const L=LIVE[keyOf(p)]; if(!L) return;
     if(typeof L.sale==='number') p.sale=L.sale;
     if(typeof L.orig==='number') p.orig=L.orig;
-    p.stock=L.stock; p.qty=L.qty; p.prevSale=L.prev_sale; p.lastChange=L.last_change; p.stale=!!L.stale;
+    p.stock=L.stock; p.qty=L.qty; p.prevSale=L.prev_sale; p.lastChange=L.last_change; p.stale=!!L.stale; p.listed=L.listed;
   }));
 }
 function showUpdated(disp, ok){
   const el=document.getElementById('updated'); if(!el) return;
   if(ok){el.className='updated live';
-    el.innerHTML=`🟢 即時價格 · 資料更新時間 <b>${disp}</b>（每日自動更新）<span class="ul">▼ 綠：較前次降價</span><span class="ul">▲ 紅：漲價</span>`;}
+    el.innerHTML=`🟢 即時價格 · 資料更新時間 <b>${disp}</b>（每日自動更新）<span class="ul">▼ 綠：較前次降價</span><span class="ul">▲ 紅：漲價</span><span class="ul">灰：已下架</span>`;}
   else{el.className='updated snap';
     el.innerHTML=`⚪ 目前為靜態快照（未載入即時價格）。將此檔與 <code>prices.json</code> 一同發佈到 GitHub Pages（同一網址）後，即會顯示每日更新的價格與庫存。`;}
 }
