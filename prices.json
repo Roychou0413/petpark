@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-05T07:49:30.402657+08:00",
-  "generated_at_display": "2026/09/05 07:49（台灣時間）",
+  "generated_at": "2026-09-06T07:38:58.992046+08:00",
+  "generated_at_display": "2026/09/06 07:38（台灣時間）",
   "source": "shop.petpark.com.tw",
-  "count": 29,
-  "listed": 26,
-  "delisted": 3,
-  "ok": 29,
+  "count": 28,
+  "listed": 24,
+  "delisted": 4,
+  "ok": 28,
   "fail": 0,
   "items": {
     "wp012154": {
@@ -191,11 +191,11 @@
     "wp012155": {
       "sale": 1599,
       "orig": 24787,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "PetSnowy snow 智能飲水機",
       "stale": false
@@ -330,18 +330,6 @@
       "listed": true,
       "category": "feeder",
       "title": "Petkit&#x4F69;&#x5947;&#x20;&#x667A;&#x80FD;&#x5BF5;&#x7269;&#x9935;&#x98DF;&#x5668;SOLO&#x20;&#x6708;&#x5149;&#x767D;&#x20;&#x28;31.6&#x2A;16.7&#x2A;29.6&#x20;&#x516C;&#x5206;&#x29;",
-      "stale": false
-    },
-    "wp012212": {
-      "sale": 2690,
-      "orig": 25177,
-      "stock": "in",
-      "qty": null,
-      "prev_sale": null,
-      "last_change": null,
-      "listed": true,
-      "category": "feeder",
-      "title": "Homerun&#x970D;&#x66FC;&#x20;&#x5BF5;&#x7269;&#x9935;&#x98DF;&#x5668;&#x28;&#x9676;&#x74F7;&#x29;&#x28;23.1&#x2A;19.5&#x2A;45.9&#x516C;&#x5206;&#x29;",
       "stale": false
     },
     "wp008600": {
