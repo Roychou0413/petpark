@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-07T07:37:38.576410+08:00",
-  "generated_at_display": "2026/09/07 07:37（台灣時間）",
+  "generated_at": "2026-09-08T08:04:26.363792+08:00",
+  "generated_at_display": "2026/09/08 08:04（台灣時間）",
   "source": "shop.petpark.com.tw",
-  "count": 28,
-  "listed": 24,
+  "count": 29,
+  "listed": 25,
   "delisted": 4,
-  "ok": 28,
+  "ok": 29,
   "fail": 0,
   "items": {
     "wp012154": {
@@ -318,6 +318,18 @@
       "listed": true,
       "category": "fountain",
       "title": "Mattte UVC無線馬達飲水機 v1.2",
+      "stale": false
+    },
+    "wp015686": {
+      "sale": 12900,
+      "orig": 33122,
+      "stock": "in",
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "feeder",
+      "title": "Panasonic&#x20;&#x53F0;&#x7063;&#x88FD;&#x5BF5;&#x7269;&#x667A;&#x80FD;&#x8907;&#x5408;&#x5F0F;&#x651D;&#x5F71;&#x98F2;&#x6C34;&#x9935;&#x98DF;&#x6A5F;&#x20;CP-JNF04-W",
       "stale": false
     },
     "wp006713": {
