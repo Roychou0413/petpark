@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-17T08:13:03.880282+08:00",
-  "generated_at_display": "2026/09/17 08:13（台灣時間）",
+  "generated_at": "2026-09-18T07:59:37.493391+08:00",
+  "generated_at_display": "2026/09/18 07:59（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 30,
-  "listed": 24,
-  "delisted": 6,
+  "listed": 25,
+  "delisted": 5,
   "ok": 30,
   "fail": 0,
   "items": {
@@ -227,11 +227,11 @@
     "wp012213": {
       "sale": 1790,
       "orig": 25174,
-      "stock": "out",
+      "stock": "in",
       "qty": null,
       "prev_sale": 1990,
       "last_change": "2026/09/10",
-      "listed": false,
+      "listed": true,
       "category": "fountain",
       "title": "Homerun UVC殺菌無線水泵飲水機",
       "stale": false
