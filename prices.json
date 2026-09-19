@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-19T07:59:58.566478+08:00",
-  "generated_at_display": "2026/09/19 07:59（台灣時間）",
+  "generated_at": "2026-09-20T07:57:54.737521+08:00",
+  "generated_at_display": "2026/09/20 07:57（台灣時間）",
   "source": "shop.petpark.com.tw",
-  "count": 30,
-  "listed": 24,
-  "delisted": 6,
-  "ok": 30,
+  "count": 29,
+  "listed": 22,
+  "delisted": 7,
+  "ok": 29,
   "fail": 0,
   "items": {
     "wp012154": {
@@ -155,7 +155,7 @@
     "wp001388": {
       "sale": 1370,
       "orig": 25252,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
@@ -195,7 +195,7 @@
       "qty": null,
       "prev_sale": 1599,
       "last_change": "2026/09/10",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "PetSnowy snow 智能飲水機",
       "stale": false
@@ -330,18 +330,6 @@
       "listed": true,
       "category": "feeder",
       "title": "Panasonic&#x20;&#x53F0;&#x7063;&#x88FD;&#x5BF5;&#x7269;&#x667A;&#x80FD;&#x8907;&#x5408;&#x5F0F;&#x651D;&#x5F71;&#x98F2;&#x6C34;&#x9935;&#x98DF;&#x6A5F;&#x20;CP-JNF04-W",
-      "stale": false
-    },
-    "wp006713": {
-      "sale": 3388,
-      "orig": 12860,
-      "stock": "in",
-      "qty": null,
-      "prev_sale": 5210,
-      "last_change": "2026/09/17",
-      "listed": true,
-      "category": "feeder",
-      "title": "Petkit&#x4F69;&#x5947;&#x20;&#x667A;&#x80FD;&#x5BF5;&#x7269;&#x9935;&#x98DF;&#x5668;SOLO&#x20;&#x6708;&#x5149;&#x767D;&#x20;&#x28;31.6&#x2A;16.7&#x2A;29.6&#x20;&#x516C;&#x5206;&#x29;",
       "stale": false
     },
     "wp012212": {
