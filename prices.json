@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-18T07:59:37.493391+08:00",
-  "generated_at_display": "2026/09/18 07:59（台灣時間）",
+  "generated_at": "2026-09-19T07:59:58.566478+08:00",
+  "generated_at_display": "2026/09/19 07:59（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 30,
-  "listed": 25,
-  "delisted": 5,
+  "listed": 24,
+  "delisted": 6,
   "ok": 30,
   "fail": 0,
   "items": {
@@ -159,7 +159,7 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Homerun 無線水泵飲水機三代",
       "stale": false
