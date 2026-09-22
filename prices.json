@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-21T07:58:12.944121+08:00",
-  "generated_at_display": "2026/09/21 07:58（台灣時間）",
+  "generated_at": "2026-09-22T08:39:18.642935+08:00",
+  "generated_at_display": "2026/09/22 08:39（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 24,
-  "delisted": 5,
+  "listed": 23,
+  "delisted": 6,
   "ok": 29,
   "fail": 0,
   "items": {
     "wp012154": {
       "sale": 2380,
       "orig": 2380,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 2000,
       "last_change": "2026/09/10",
-      "listed": true,
+      "listed": false,
       "category": "feeder",
       "title": "PetSnowy snow 智能餵食器",
       "stale": false
@@ -131,7 +131,7 @@
     "20761820": {
       "sale": 130,
       "orig": 16031,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
