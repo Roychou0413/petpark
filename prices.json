@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-27T08:21:25.818876+08:00",
-  "generated_at_display": "2026/09/27 08:21（台灣時間）",
+  "generated_at": "2026-09-28T08:25:15.301136+08:00",
+  "generated_at_display": "2026/09/28 08:25（台灣時間）",
   "source": "shop.petpark.com.tw",
-  "count": 29,
-  "listed": 21,
+  "count": 28,
+  "listed": 20,
   "delisted": 8,
-  "ok": 29,
+  "ok": 28,
   "fail": 0,
   "items": {
     "wp012154": {
@@ -342,18 +342,6 @@
       "listed": true,
       "category": "feeder",
       "title": "Homerun&#x970D;&#x66FC;&#x20;&#x5BF5;&#x7269;&#x9935;&#x98DF;&#x5668;&#x28;&#x9676;&#x74F7;&#x29;&#x28;23.1&#x2A;19.5&#x2A;45.9&#x516C;&#x5206;&#x29;",
-      "stale": false
-    },
-    "wp008600": {
-      "sale": 1880,
-      "orig": 16373,
-      "stock": "in",
-      "qty": null,
-      "prev_sale": null,
-      "last_change": null,
-      "listed": true,
-      "category": "fountain",
-      "title": "Pawaii&#x20;&#x7121;&#x7DDA;&#x98F2;&#x6C34;&#x6A5F;&#x20;&#x767D;&#x20;2L&#x20;&#x28;26.6&#x2A;14.5&#x2A;15&#x516C;&#x5206;&#x29;",
       "stale": false
     }
   }
