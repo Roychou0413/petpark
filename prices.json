@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-30T09:09:31.093680+08:00",
-  "generated_at_display": "2026/09/30 09:09（台灣時間）",
+  "generated_at": "2026-10-01T09:09:22.352191+08:00",
+  "generated_at_display": "2026/10/01 09:09（台灣時間）",
   "source": "shop.petpark.com.tw",
-  "count": 28,
-  "listed": 20,
+  "count": 29,
+  "listed": 21,
   "delisted": 8,
-  "ok": 28,
+  "ok": 29,
   "fail": 0,
   "items": {
     "wp012154": {
@@ -105,24 +105,24 @@
       "stale": false
     },
     "wp013007": {
-      "sale": 12888,
+      "sale": 15960,
       "orig": 25153,
       "stock": "in",
       "qty": null,
-      "prev_sale": 15960,
-      "last_change": "2026/09/17",
+      "prev_sale": 12888,
+      "last_change": "2026/10/01",
       "listed": true,
       "category": "litter",
       "title": "Petkit MAX2 標準版",
       "stale": false
     },
     "wp016808": {
-      "sale": 18888,
+      "sale": 22610,
       "orig": 35493,
       "stock": "in",
       "qty": null,
-      "prev_sale": 22610,
-      "last_change": "2026/09/17",
+      "prev_sale": 18888,
+      "last_change": "2026/10/01",
       "listed": true,
       "category": "litter",
       "title": "Petkit MAXPRO2 攝影版",
@@ -261,12 +261,12 @@
       "stale": false
     },
     "wp005304": {
-      "sale": 2588,
+      "sale": 2830,
       "orig": 12866,
       "stock": "in",
       "qty": null,
-      "prev_sale": 2830,
-      "last_change": "2026/09/17",
+      "prev_sale": 2588,
+      "last_change": "2026/10/01",
       "listed": true,
       "category": "fountain",
       "title": "Petkit SOLO 2 無線馬達",
@@ -285,12 +285,12 @@
       "stale": false
     },
     "wp011970": {
-      "sale": 3988,
+      "sale": 5585,
       "orig": 25183,
       "stock": "in",
       "qty": null,
-      "prev_sale": 5585,
-      "last_change": "2026/09/17",
+      "prev_sale": 3988,
+      "last_change": "2026/10/01",
       "listed": true,
       "category": "fountain",
       "title": "Petkit MAX 真無線",
@@ -330,6 +330,18 @@
       "listed": true,
       "category": "feeder",
       "title": "Panasonic&#x20;&#x53F0;&#x7063;&#x88FD;&#x5BF5;&#x7269;&#x667A;&#x80FD;&#x8907;&#x5408;&#x5F0F;&#x651D;&#x5F71;&#x98F2;&#x6C34;&#x9935;&#x98DF;&#x6A5F;&#x20;CP-JNF04-W",
+      "stale": false
+    },
+    "wp006713": {
+      "sale": 3388,
+      "orig": 12860,
+      "stock": "in",
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "feeder",
+      "title": "Petkit&#x4F69;&#x5947;&#x20;&#x667A;&#x80FD;&#x5BF5;&#x7269;&#x9935;&#x98DF;&#x5668;SOLO&#x20;&#x6708;&#x5149;&#x767D;&#x20;&#x28;31.6&#x2A;16.7&#x2A;29.6&#x20;&#x516C;&#x5206;&#x29;",
       "stale": false
     },
     "wp012212": {
