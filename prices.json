@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-05T08:34:20.182104+08:00",
-  "generated_at_display": "2026/10/05 08:34（台灣時間）",
+  "generated_at": "2026-10-06T10:07:27.476171+08:00",
+  "generated_at_display": "2026/10/06 10:07（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
   "listed": 22,
@@ -35,7 +35,7 @@
     "wp008433": {
       "sale": 5965,
       "orig": 12851,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 4388,
       "last_change": "2026/09/01",
