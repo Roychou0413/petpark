@@ -32,10 +32,25 @@ jobs:
         run: |
           git config user.name  "price-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add prices.json history.csv
+          git add prices.json history.csv products.json
           if git diff --cached --quiet; then
             echo "沒有價格變動，略過 commit。"
           else
             git commit -m "chore: update prices ($(TZ=Asia/Taipei date +%Y-%m-%d))"
             git push
           fi
+
+      # 降價／補貨／新上架等變動通知。未設定任何 secrets 時只印在紀錄裡。
+      # 爬蟲整個失敗時也會執行，把異常警告送出去。
+      - name: Notify changes
+        if: always()
+        env:
+          PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          NOTIFY_TYPES: ${{ vars.NOTIFY_TYPES }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          LINE_CHANNEL_TOKEN: ${{ secrets.LINE_CHANNEL_TOKEN }}
+          LINE_TO: ${{ secrets.LINE_TO }}
+        run: python notify.py

@@ -14,7 +14,7 @@
 
 只用 Python 標準函式庫，免安裝任何套件。
 """
-import json, re, csv, sys, time, gzip, datetime, pathlib
+import json, re, csv, sys, time, gzip, datetime, pathlib, html as htmllib
 import urllib.request, urllib.error
 
 ROOT     = pathlib.Path(__file__).parent
@@ -99,8 +99,33 @@ def parse_product(html):
         if mq: stock, qty = "low", int(mq.group(1))
         elif "有庫存" in html: stock = "in"
     mt = re.search(r'og:title"\s*content="([^"]+)"', html)
-    title = mt.group(1).strip() if mt else None
+    title = htmllib.unescape(mt.group(1)).strip() if mt else None
     return sale, orig, stock, qty, title
+
+
+def diff_events(prev, items):
+    """比較前次與本次快照，回傳值得通知的變動事件（首次執行無前次資料則不回傳）。"""
+    if not prev: return []
+    ev = []
+    for key, cur in items.items():
+        old = prev.get(key)
+        name = cur.get("title") or key
+        base = {"key": key, "name": name, "category": cur.get("category"),
+                "url": BASE + key, "sale": cur.get("sale")}
+        if old is None:
+            if cur.get("listed"): ev.append({**base, "type": "new"})
+            continue
+        if cur.get("stale"): continue            # 這次沒抓到，不比較
+        was_listed, is_listed = old.get("listed", True), cur.get("listed")
+        if was_listed and not is_listed: ev.append({**base, "type": "delisted"})
+        elif is_listed and not was_listed: ev.append({**base, "type": "relisted"})
+        osale, nsale = old.get("sale"), cur.get("sale")
+        if isinstance(osale, int) and isinstance(nsale, int) and osale != nsale:
+            ev.append({**base, "type": "down" if nsale < osale else "up", "from": osale})
+        ostk, nstk = old.get("stock"), cur.get("stock")
+        if ostk == "out" and nstk in ("in", "low"): ev.append({**base, "type": "restock"})
+        elif ostk in ("in", "low") and nstk == "out": ev.append({**base, "type": "soldout"})
+    return ev
 
 
 def load_json(path, default):
@@ -150,7 +175,7 @@ def main():
             else:
                 prev_sale, last_change = old.get("prev_sale"), old.get("last_change")
             listed = (key in listed_keys) if trust else old.get("listed", True)
-            if title and not meta.get("name"): meta["name"] = title
+            if title and (not meta.get("name") or "&#" in meta["name"]): meta["name"] = title
             items[key] = {"sale": sale, "orig": orig, "stock": stock, "qty": qty,
                           "prev_sale": prev_sale, "last_change": last_change,
                           "listed": listed, "category": meta.get("category"),
@@ -171,11 +196,16 @@ def main():
         time.sleep(POLITE_DELAY)
 
     listed_ct = sum(1 for v in items.values() if v.get("listed"))
+    events = diff_events(prev, items)
+    health = []
+    if disc_fail: health.append(f"{disc_fail}/{len(CATEGORIES)} 個分類頁抓取失敗")
+    if items and fail * 2 > len(items): health.append(f"{fail}/{len(items)} 個商品頁抓取失敗")
     out = {"generated_at": now.isoformat(),
            "generated_at_display": now.strftime("%Y/%m/%d %H:%M") + "（台灣時間）",
            "source": "shop.petpark.com.tw", "count": len(items),
            "listed": listed_ct, "delisted": len(items) - listed_ct,
-           "ok": ok, "fail": fail, "items": items}
+           "ok": ok, "fail": fail, "events": events, "health": health,
+           "items": items}
     PRICES.write_text(json.dumps(out, ensure_ascii=False, indent=2), "utf-8")
 
     # 回寫 products.json（新商品補入，永不自動刪除）
@@ -188,6 +218,8 @@ def main():
         if is_new: w.writerow(["datetime", "key", "sale", "orig", "stock", "listed"])
         w.writerows(hist)
 
+    for e in events: print(f"變動 {e['type']:<9} {e['key']:<11} {e['name']}")
+    for h in health: print(f"警告：{h}", file=sys.stderr)
     print(f"\n完成：{ok} ok / {fail} fail；在架 {listed_ct}、已下架 {len(items)-listed_ct} → {PRICES.name}")
     if ok == 0: sys.exit(1)
 
