@@ -18,12 +18,42 @@
 
 | 檔案 | 用途 |
 | --- | --- |
-| `index.html` | 比較表網頁。讀取同資料夾的 `prices.json` 顯示即時價格、庫存、上下架、漲跌 |
+| `index.html` | 比較表網頁。讀取同資料夾的 `prices.json` 顯示即時價格、庫存、上下架、漲跌，並讀 `history.csv` 畫價格走勢 |
 | `prices.json` | 目前價格快照（由爬蟲產生，網頁讀這份）。已內含初始資料 |
 | `products.json` | 已知商品清單（爬蟲會自動補新商品；已下架的會保留） |
 | `scrape.py` | 爬蟲：自動抓分類 → 解析每頁價格/庫存 → 寫 `prices.json`、附加 `history.csv`。純標準庫、免安裝 |
-| `history.csv` | 每次執行附加，累積價格與上下架歷史，可丟 Excel 看趨勢 |
+| `history.csv` | 每次執行附加，累積價格與上下架歷史，可丟 Excel 看趨勢；網頁也用它畫走勢圖 |
+| `notify.py` | 讀 `prices.json` 的變動事件，送通知到 Telegram / Discord / Slack / LINE（選用） |
 | `.github/workflows/update-prices.yml` | GitHub Actions 排程：每天自動跑並提交更新 |
+
+## 網頁功能
+
+- **即時價格與摘要**：分類摘要卡、商品數、價格帶都由 `prices.json` 即時計算，不會停在舊價格。
+  摘要文字裡用 `{$商品key}`（例如 `{$wp012154}`）代表該商品目前價格，已下架／缺貨會自動加註。
+- **價格走勢**：每個商品下方有迷你走勢圖（滑鼠移上去看每天價格），並標示追蹤期間最低／最高價、
+  「🔥 追蹤以來最低」及與 30 日均價的差距。
+- **近 7 天變動**：頁面上方彙整所有分類 7 天內的降價、漲價、新上架、下架、重新上架。
+- **尚未整理規格的商品**：爬蟲自動發現、但 `DATA` 裡還沒有規格的商品，會列在各分類表格下方。
+
+## 變動通知（選用）
+
+每次排程跑完，`notify.py` 會把「降價、漲價、補貨、缺貨、新上架、下架、重新上架」整理成一則訊息；
+若大量商品頁或分類頁抓取失敗（網站可能改版），也會發出警告。
+
+到 **Settings → Secrets and variables → Actions → New repository secret** 設定想用的管道（可多選，沒設的略過）：
+
+| 管道 | 需要的 Secrets |
+| --- | --- |
+| Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` |
+| Discord | `DISCORD_WEBHOOK_URL`（頻道設定 → 整合 → Webhook） |
+| Slack | `SLACK_WEBHOOK_URL`（Incoming Webhook） |
+| LINE | `LINE_CHANNEL_TOKEN`、`LINE_TO`（LINE Messaging API 的 channel access token 與使用者／群組 ID） |
+
+> LINE Notify 已於 2025 年停止服務，所以 LINE 用的是 Messaging API。
+
+只想收部分事件，可在同頁的 **Variables** 新增 `NOTIFY_TYPES`，例如 `down,restock,new`
+（可用值：`down` `up` `restock` `soldout` `new` `delisted` `relisted`；爬蟲異常警告一律會送）。
+都沒設定時，訊息只會出現在 Actions 執行紀錄的「Notify changes」步驟裡。
 
 ## 為什麼不能讓 HTML 自己抓價？
 
@@ -55,7 +85,7 @@
 - **在比較表顯示規格/圖片**：新商品會自動進入 `prices.json`（有名稱/價格/庫存），
   但比較表的功能規格與圖片仍是手動整理的——需到 `index.html` 的 `DATA` 內補一筆
   （欄位參考現有商品，`url` 用同一個 petpark 網址，key 會自動對應）；未補的商品
-  只是不會出現在表格，價格照樣被抓取記錄。
+  會列在該分類表格下方的「尚未整理規格的商品」區，價格照樣被抓取記錄。
 - **移除已下架商品**：從 `products.json` 刪除該筆即可（預設保留並標示已下架）。
 
 ## 注意事項

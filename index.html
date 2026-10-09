@@ -118,6 +118,47 @@
   .phead.gone .imgbox{opacity:.5;filter:grayscale(.45)}
   .phead.gone .pname{color:var(--muted)}
 
+  /* price history */
+  .trend{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)}
+  .spark{display:block;width:100%;height:36px;cursor:crosshair;overflow:visible}
+  .spark .ln{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .spark .lo{stroke:var(--line);stroke-width:1;stroke-dasharray:3 3}
+  .spark .end{fill:var(--accent);stroke:var(--surface);stroke-width:2}
+  .spark .hov{fill:var(--surface);stroke:var(--accent);stroke-width:2;display:none}
+  .spark .xh{stroke:var(--muted);stroke-width:1;display:none}
+  .tstat{font-size:11px;color:var(--muted);line-height:1.45;margin-top:4px}
+  .tstat b{color:var(--ink);font-weight:600}
+  .trend .chg{margin-left:0;margin-right:6px}
+  .chg.low{background:#FBEBD9;color:#8A4B12}
+  .chg.avg{background:#EDF0EC;color:var(--muted)}
+  #tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:#fff;font-size:12px;line-height:1.4;
+    padding:6px 9px;border-radius:7px;box-shadow:var(--shadow);display:none;white-space:nowrap}
+  #tip b{font-size:13px}
+
+  /* recent changes */
+  .recent{margin:14px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 16px}
+  .recent summary{cursor:pointer;font-size:13.5px;font-weight:700;padding:12px 0;list-style-position:inside}
+  .recent summary .sm{font-weight:400;color:var(--muted);font-size:12px;margin-left:8px}
+  .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 24px;padding:0 0 14px}
+  .rgrid h4{margin:8px 0 4px;font-size:12px;letter-spacing:.04em;color:var(--muted)}
+  .rgrid ul{margin:0;padding:0;list-style:none}
+  .rgrid li{font-size:13px;padding:3px 0;display:flex;gap:8px;justify-content:space-between;border-bottom:1px solid var(--line-2)}
+  .rgrid li a{color:var(--ink);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rgrid li a:hover{color:var(--accent-ink);text-decoration:underline}
+  .rgrid .v{white-space:nowrap;font-weight:600}
+  .rgrid .v.down{color:var(--accent-ink)} .rgrid .v.up{color:#A23B3B}
+  .rgrid .cat{color:var(--muted);font-size:11px;margin-right:4px}
+
+  /* products without spec rows */
+  .extra{margin-top:26px}
+  .extra h2{font-size:16px;margin:0 0 4px}
+  .extra p.note{font-size:12.5px;color:var(--muted);margin:0 0 12px;max-width:80ch}
+  .extra p.note code{background:var(--accent-soft);color:var(--accent-ink);padding:1px 6px;border-radius:5px;font-size:11.5px}
+  .xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .xcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .xcard.gone{opacity:.65}
+  .xcard .pname{font-size:13.5px}
+
   @media (max-width:560px){.page{padding:28px 14px 48px}.imgbox{height:104px}}
   @media (prefers-reduced-motion:no-preference){
     .wrap,.cards{animation:rise .45s ease both}
@@ -132,6 +173,7 @@
   <p class="lead">彙整寵物公園三大智能家電分類：自動餵食器、智能貓砂機、自動飲水機，逐款比較價格、核心功能與規格，並附商品圖片。點上方分頁切換分類，各分類可依類型篩選、依價格排序。</p>
 
   <div class="updated snap" id="updated">⚪ 載入中…</div>
+  <details class="recent hide" id="recent" open></details>
 
   <div class="tabs" id="tabs"></div>
 
@@ -159,7 +201,10 @@
   <div class="wrap">
     <table id="tbl"><thead><tr id="headRow"></tr></thead><tbody id="body"></tbody></table>
   </div>
+
+  <section class="extra hide" id="extra"></section>
 </div>
+<div id="tip"></div>
 
 <script>
 const PP = n => `https://shop.petpark.com.tw/media/catalog/product/p/r/production_${n}.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=480&width=480&canvas=480:480`;
@@ -169,12 +214,12 @@ const nf = new Intl.NumberFormat('en-US');
 const DATA = {
   feeder:{
     tab:'自動餵食器',
-    sub:'共 7 款，涵蓋 Petkit 佩奇、Maogougo、PetSnowy。核心差異在於是否具視訊鏡頭、是否具秤重出糧，以及儲糧容量與材質。',
-    meta:[['商品數','7 款'],['品牌','Petkit・Maogougo・PetSnowy'],['價格帶','$2,000–$7,688']],
+    sub:'共 {count} 款，涵蓋 Petkit 佩奇、Maogougo、PetSnowy。核心差異在於是否具視訊鏡頭、是否具秤重出糧，以及儲糧容量與材質。',
+    brands:'Petkit・Maogougo・PetSnowy',
     cards:[
-      ['最平價入手','PetSnowy $2,000、Maogougo 藍芽版 $2,399，App 定時餵食基礎款，無鏡頭。'],
-      ['想遠端看毛孩（視訊）','Petkit SOLO $4,388 最低價；Maogougo 5G $4,599 唯一支援 5G＋記憶卡本地儲存；雙子星 $5,588 雙倉可放兩種飼料。'],
-      ['精準控糧（秤重）','只有 Petkit 不鏽鋼 3L／5L 具「秤重出糧」，但價位最高（$7,288 起）。'],
+      ['入門基礎款','PetSnowy {$wp012154}、Maogougo 藍芽版 {$wp015736}，App 定時餵食基礎款，無鏡頭。'],
+      ['想遠端看毛孩（視訊）','Petkit SOLO {$wp008433}；Maogougo 5G {$wp015735} 唯一支援 5G＋記憶卡本地儲存；雙子星 {$wp008434} 雙倉可放兩種飼料。'],
+      ['精準控糧（秤重）','只有 Petkit 不鏽鋼 3L {$20853471}／5L {$20853488} 具「秤重出糧」。'],
       ['材質','僅 Petkit 不鏽鋼款糧桶與食盆皆 304 不鏽鋼，其餘為 ABS 機身＋不鏽鋼／塑膠食盆。'],
     ],
     filters:[['all','全部'],['basic','無鏡頭基礎款'],['camera','視訊攝影款'],['scale','秤重不鏽鋼款']],
@@ -215,12 +260,12 @@ const DATA = {
 
   litter:{
     tab:'智能貓砂機',
-    sub:'共 3 款。Petkit 兩款為滾筒式全自動貓砂機（旗艦 MAXPRO2 帶鏡頭、標準 MAX2 無鏡頭）；PetSnowy 為除臭型智慧貓砂盆，主打 TiO2＋紫外線除菌與自動封袋。',
-    meta:[['商品數','3 款'],['品牌','Petkit・PetSnowy'],['價格帶','$12,800–$17,688']],
+    sub:'共 {count} 款。Petkit 兩款為滾筒式全自動貓砂機（旗艦 MAXPRO2 帶鏡頭、標準 MAX2 無鏡頭）；PetSnowy 為除臭型智慧貓砂盆，主打 TiO2＋紫外線除菌與自動封袋。',
+    brands:'Petkit・PetSnowy',
     cards:[
-      ['要看貓咪如廁（鏡頭）','僅 Petkit MAXPRO2（$17,688）內建 210° 魚眼鏡頭，可記錄如廁數據；另兩款無鏡頭。'],
-      ['最強除菌除臭','PetSnowy（$12,800）搭載 TiO2＋紫外線除菌消臭、自動封袋、多貓辨識，10L 集便倉。'],
-      ['CP 值全自動','Petkit MAX2 標準版（$12,888）滾筒全自動、三防砂倉，價位親民且原廠 2 年保固。'],
+      ['要看貓咪如廁（鏡頭）','僅 Petkit MAXPRO2（{$wp016808}）內建 210° 魚眼鏡頭，可記錄如廁數據；另兩款無鏡頭。'],
+      ['最強除菌除臭','PetSnowy（{$wp012158}）搭載 TiO2＋紫外線除菌消臭、自動封袋、多貓辨識，10L 集便倉。'],
+      ['CP 值全自動','Petkit MAX2 標準版（{$wp013007}）滾筒全自動、三防砂倉，原廠 2 年保固。'],
       ['集便容量','三款皆 7–10L 集便；MAXPRO2 標榜最長 17 天免鏟、76L 大空間，適合多貓。'],
     ],
     filters:[['all','全部'],['camera','攝影款'],['plain','無攝影款']],
@@ -252,13 +297,13 @@ const DATA = {
 
   fountain:{
     tab:'自動飲水機',
-    sub:'共 16 款（含 3 款已下架），價差極大（$130–$4,120）。核心差異在於是否具 UVC／UV 殺菌、過濾方式（一般濾芯 vs 超濾）、是否無線續航，以及是否支援 App。含 1 款小動物用滴水瓶（carno）為分類內項目一併列出。',
-    meta:[['商品數','16 款（現售13·已下架3）'],['品牌','11 個品牌'],['價格帶','$130–$4,120']],
+    sub:'共 {count} 款（{status}），價差極大（{range}）。核心差異在於是否具 UVC／UV 殺菌、過濾方式（一般濾芯 vs 超濾）、是否無線續航，以及是否支援 App。含 1 款小動物用滴水瓶（carno）為分類內項目一併列出。',
+    brands:'11 個品牌',
     cards:[
-      ['要 UVC／UV 殺菌','現售具紫外線殺菌的有 Homerun UVC、Peile UV、petsee、Mattte（99.9% 起）；Pawaii、FURBULOUS、Petkit W4X 已下架（表中標示）。'],
-      ['App 智能監控','現售支援 App 的有 PetSnowy snow（$1,599）、Petkit SOLO 2（$2,388）、Petkit MAX 真無線（$3,688）；可遠端切換出水、查看濾心壽命與喝水數據。'],
+      ['要 UVC／UV 殺菌','具紫外線殺菌：Homerun UVC {$wp012213}、Peile UV {$wp008961}、petsee {$wp019640}、Mattte {$wp013479}、Pawaii {$wp008599}、Petkit W4X {$wp011051}。'],
+      ['App 智能監控','支援 App：PetSnowy snow {$wp012155}、Petkit SOLO 2 {$wp005304}、Petkit MAX 真無線 {$wp011970}；可遠端切換出水、查看濾心壽命與喝水數據。'],
       ['無線續航最長','petsee 雙無線約 90 天、Petkit MAX 真無線 83 天（5000mAh）；多數無線款採分離式馬達、水電分離更安全。'],
-      ['預算有限','Homerun 三代（$1,370）、Hu\'RuRu（$1,390）無線靜音、好清洗但無殺菌；TOM CAT（$499）為有線入門款。'],
+      ['預算有限','Homerun 三代 {$wp001388}、Hu\'RuRu {$wp010867} 無線靜音、好清洗但無殺菌；TOM CAT {$20780012} 為有線入門款。'],
     ],
     filters:[['all','全部'],['sterile','殺菌款'],['plain','一般款'],['app','App 智能']],
     rows:[
@@ -314,7 +359,11 @@ const DATA = {
 };
 
 /* ============================ RENDER ============================ */
-let active='feeder', order='asc', filterState={feeder:'all',litter:'all',fountain:'all'}, LIVE={};
+let active='feeder', order='asc', filterState={feeder:'all',litter:'all',fountain:'all'}, LIVE={}, HIST={};
+const CAT_NAME={feeder:'餵食器',litter:'貓砂機',fountain:'飲水機'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function dec(s){const t=document.createElement('textarea');t.innerHTML=s||'';return t.value;}
+const money=n=>typeof n==='number'?'$'+nf.format(n):'—';
 
 function cell(v){
   if(v===true) return `<span class="yes">✓</span>`;
@@ -335,9 +384,11 @@ function renderTabs(){
 function renderAll(){
   const d=DATA[active];
   renderTabs();
-  document.getElementById('meta').innerHTML = d.meta.map(m=>`<span>${m[0]}：<b>${m[1]}</b></span>`).join('');
-  document.getElementById('catsub').textContent = d.sub;
-  document.getElementById('cards').innerHTML = d.cards.map(c=>`<div class="card"><h3><span class="dot"></span>${c[0]}</h3><p>${c[1]}</p></div>`).join('');
+  const st=catStats(d);
+  const meta=[['商品數',st.delisted?`${st.count} 款（現售 ${st.count-st.delisted}・已下架 ${st.delisted}）`:`${st.count} 款`],['品牌',d.brands],['價格帶',st.range]];
+  document.getElementById('meta').innerHTML = meta.map(m=>`<span>${m[0]}：<b>${m[1]}</b></span>`).join('');
+  document.getElementById('catsub').textContent = fill(d.sub,st);
+  document.getElementById('cards').innerHTML = d.cards.map(c=>`<div class="card"><h3><span class="dot"></span>${c[0]}</h3><p>${fill(c[1],st)}</p></div>`).join('');
   document.getElementById('chips').innerHTML = d.filters.map(f=>`<button class="chip ${filterState[active]===f[0]?'active':''}" data-cat="${f[0]}">${f[1]}</button>`).join('');
   document.querySelectorAll('#chips .chip').forEach(ch=>ch.onclick=()=>{filterState[active]=ch.dataset.cat;renderAll();});
   document.getElementById('sortBtn').textContent = order==='asc'?'排序：價格 由低到高 ↑':'排序：價格 由高到低 ↓';
@@ -352,7 +403,7 @@ function renderAll(){
     const price = (p.orig && p.orig>p.sale)
       ? `<div class="price"><span class="now">$${nf.format(p.sale)}</span><span class="was">$${nf.format(p.orig)}</span></div><div class="save">省 $${nf.format(p.orig-p.sale)}・−${off}%</div>`
       : `<div class="price"><span class="now">$${nf.format(p.sale)}</span></div>`;
-    return `<th class="phead ${catMatch(p)?'':'hide'} ${p.listed===false?'gone':''}" data-id="${p.url}">${img}<div class="brandtag">${p.brand}</div><div class="pname">${p.name}</div>${price}${delistedBadge(p)}${stockBadge(p)}${changeNote(p)}</th>`;
+    return `<th class="phead ${catMatch(p)?'':'hide'} ${p.listed===false?'gone':''}" data-id="${p.url}">${img}<div class="brandtag">${p.brand}</div><div class="pname">${p.name}</div>${price}${delistedBadge(p)}${stockBadge(p)}${changeNote(p)}${trendBlock(keyOf(p),p.sale)}</th>`;
   }).join('');
 
   let html = d.rows.map(r=>{
@@ -362,6 +413,139 @@ function renderAll(){
   const links=list.map(p=>`<td class="${catMatch(p)?'':'hide'}" data-id="${p.url}"><a class="linkbtn" href="${p.url}" target="_blank" rel="noopener">前往商品頁 ↗</a></td>`).join('');
   html += `<tr><th class="rowlabel">商品頁</th>${links}</tr>`;
   document.getElementById('body').innerHTML = html;
+  renderExtra();
+}
+
+/* ---- summary text: tokens filled from live prices ---- */
+function findProduct(key){
+  for(const c of Object.keys(DATA)){const p=DATA[c].products.find(x=>keyOf(x)===key); if(p) return p;}
+  const L=LIVE[key]; return L?{sale:L.sale,listed:L.listed,stock:L.stock}:null;
+}
+function catStats(d){
+  const ps=d.products, live=ps.filter(p=>p.listed!==false), pool=(live.length?live:ps).map(p=>p.sale).filter(n=>typeof n==='number');
+  const range=pool.length?`${money(Math.min(...pool))}–${money(Math.max(...pool))}`:'—';
+  const delisted=ps.length-live.length;
+  return {count:ps.length,delisted,range,status:delisted?`現售 ${ps.length-delisted}・已下架 ${delisted}`:'全數現售'};
+}
+function fill(str,st){
+  return str.replace(/\{\$([\w-]+)\}/g,(m,k)=>{
+    const p=findProduct(k); if(!p||typeof p.sale!=='number') return '—';
+    return money(p.sale)+(p.listed===false?'（已下架）':p.stock==='out'?'（缺貨）':'');
+  }).replace(/\{count\}/g,st.count).replace(/\{status\}/g,st.status).replace(/\{range\}/g,st.range);
+}
+
+/* ---- price history (history.csv → one point per day) ---- */
+function parseHistory(txt){
+  const H={};
+  txt.replace(/^\uFEFF/,'').trim().split(/\r?\n/).slice(1).forEach(line=>{
+    const [dt,key,sale,,stock,listed]=line.split(',');
+    if(!key||!dt) return;
+    const d=dt.slice(0,10), s=parseInt(sale,10), arr=H[key]||(H[key]=[]);
+    const rec={d,s:isNaN(s)?null:s,stock,listed:listed==='1'};
+    if(arr.length&&arr[arr.length-1].d===d) arr[arr.length-1]=rec; else arr.push(rec);
+  });
+  return H;
+}
+const dayNum=d=>Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))/864e5;
+const md=d=>`${+d.slice(5,7)}/${+d.slice(8,10)}`;
+function priced(key){return (HIST[key]||[]).filter(r=>typeof r.s==='number');}
+
+function trendBlock(key,cur){
+  const pts=priced(key); if(pts.length<2) return '';
+  const vals=pts.map(r=>r.s), lo=Math.min(...vals), hi=Math.max(...vals);
+  let loAt=pts[0]; pts.forEach(r=>{if(r.s===lo) loAt=r;});
+  const now=typeof cur==='number'?cur:vals[vals.length-1];
+  const last=dayNum(pts[pts.length-1].d), win=pts.filter(r=>last-dayNum(r.d)<30);
+  const avg=win.reduce((a,r)=>a+r.s,0)/win.length, pct=Math.round((now-avg)/avg*100);
+  const span=Math.round(last-dayNum(pts[0].d))+1;
+  let badges='';
+  if(hi>lo&&now<=lo) badges+=`<span class="chg low">🔥 追蹤以來最低</span>`;
+  if(Math.abs(pct)>=3) badges+=`<span class="chg avg">${pct<0?'低於':'高於'} 30 日均價 ${Math.abs(pct)}%</span>`;
+  const stat=hi===lo?`近 ${span} 天價格持平 <b>${money(lo)}</b>`
+    :`近 ${span} 天 · 最低 <b>${money(lo)}</b>（${md(loAt.d)}）· 最高 <b>${money(hi)}</b>`;
+  return `<div class="trend">${spark(key,pts,lo,hi)}<div class="tstat">${stat}</div>${badges}</div>`;
+}
+function spark(key,pts,lo,hi){
+  const W=188,H=36,P=4, d0=dayNum(pts[0].d), d1=dayNum(pts[pts.length-1].d)||d0+1;
+  const x=r=>P+(W-2*P)*((dayNum(r.d)-d0)/((d1-d0)||1));
+  const y=v=>hi===lo?H/2:P+(H-2*P)*(1-(v-lo)/(hi-lo));
+  // step line: a price holds until the next observation
+  let dpath=`M${x(pts[0]).toFixed(1)},${y(pts[0].s).toFixed(1)}`;
+  for(let i=1;i<pts.length;i++) dpath+=`H${x(pts[i]).toFixed(1)}V${y(pts[i].s).toFixed(1)}`;
+  const e=pts[pts.length-1];
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" data-key="${esc(key)}" role="img" aria-label="價格走勢 ${money(lo)} 至 ${money(hi)}">`+
+    `<line class="lo" x1="${P}" x2="${W-P}" y1="${y(lo)}" y2="${y(lo)}"/>`+
+    `<path class="ln" d="${dpath}" vector-effect="non-scaling-stroke"/>`+
+    `<line class="xh" y1="0" y2="${H}"/><circle class="end" r="3.5" cx="${x(e)}" cy="${y(e.s)}"/><circle class="hov" r="4"/></svg>`;
+}
+document.addEventListener('mousemove',ev=>{
+  const tip=document.getElementById('tip'), svg=ev.target.closest&&ev.target.closest('svg.spark');
+  document.querySelectorAll('svg.spark.on').forEach(s=>{if(s!==svg){s.classList.remove('on');s.querySelector('.hov').style.display=s.querySelector('.xh').style.display='none';}});
+  if(!svg){tip.style.display='none';return;}
+  const pts=priced(svg.dataset.key); if(!pts.length) return;
+  const b=svg.getBoundingClientRect(), W=188, P=4, d0=dayNum(pts[0].d), d1=dayNum(pts[pts.length-1].d);
+  const dx=d0+((ev.clientX-b.left)/b.width*W-P)/(W-2*P)*((d1-d0)||1);
+  let r=pts[0]; pts.forEach(q=>{if(dayNum(q.d)<=dx+.5) r=q;});
+  const vals=pts.map(q=>q.s), lo=Math.min(...vals), hi=Math.max(...vals), H=36;
+  const cx=P+(W-2*P)*((dayNum(r.d)-d0)/((d1-d0)||1)), cy=hi===lo?H/2:P+(H-2*P)*(1-(r.s-lo)/(hi-lo));
+  svg.classList.add('on');
+  const hov=svg.querySelector('.hov'), xh=svg.querySelector('.xh');
+  hov.setAttribute('cx',cx); hov.setAttribute('cy',cy); hov.style.display='block';
+  xh.setAttribute('x1',cx); xh.setAttribute('x2',cx); xh.style.display='block';
+  tip.innerHTML=`${r.d.replace(/-/g,'/')}<br><b>${money(r.s)}</b>${r.listed?'':' · 已下架'}${r.stock==='out'?' · 無庫存':''}`;
+  tip.style.display='block';
+  const tx=Math.min(ev.clientX+14, innerWidth-tip.offsetWidth-8);
+  tip.style.left=tx+'px'; tip.style.top=(ev.clientY-tip.offsetHeight-12)+'px';
+});
+
+/* ---- 7-day change summary (all categories) ---- */
+function displayName(key){
+  const p=findProduct(key);
+  if(p&&p.brand) return `${p.brand} ${p.name}`;
+  return dec(LIVE[key]?.title)||key;
+}
+function renderRecent(){
+  const el=document.getElementById('recent'), keys=Object.keys(HIST); if(!keys.length) return;
+  const lastDay=Math.max(...keys.map(k=>dayNum(HIST[k][HIST[k].length-1].d))), cut=lastDay-7;
+  const firstDay=Math.min(...keys.map(k=>dayNum(HIST[k][0].d)));
+  const g={down:[],up:[],new:[],gone:[],back:[]};
+  keys.forEach(k=>{
+    const h=HIST[k], cur=h[h.length-1]; if(dayNum(cur.d)<lastDay) return;
+    const base=[...h].reverse().find(r=>dayNum(r.d)<=cut);
+    const cat=LIVE[k]?.category, row={k,cat};
+    if(!base){ if(firstDay<=cut&&cur.listed) g.new.push({...row,v:money(cur.s)}); return; }
+    if(base.listed&&!cur.listed) g.gone.push({...row,v:money(cur.s)});
+    if(!base.listed&&cur.listed) g.back.push({...row,v:money(cur.s)});
+    if(typeof base.s==='number'&&typeof cur.s==='number'&&base.s!==cur.s){
+      const pct=Math.round((cur.s-base.s)/base.s*100);
+      (cur.s<base.s?g.down:g.up).push({...row,v:`${money(base.s)} → ${money(cur.s)}（${pct>0?'+':''}${pct}%）`,cls:cur.s<base.s?'down':'up',pct});
+    }
+  });
+  g.down.sort((a,b)=>a.pct-b.pct); g.up.sort((a,b)=>b.pct-a.pct);
+  const groups=[['▼ 降價','down'],['▲ 漲價','up'],['🆕 新上架','new'],['⛔ 下架','gone'],['🔁 重新上架','back']].filter(x=>g[x[1]].length);
+  const total=groups.reduce((a,x)=>a+g[x[1]].length,0);
+  el.innerHTML=`<summary>近 7 天變動<span class="sm">${total?`共 ${total} 項 · 與 7 天前相比`:'這 7 天價格與上下架都沒有變動'}</span></summary>`+
+    (total?`<div class="rgrid">${groups.map(([t,k])=>`<div><h4>${t}（${g[k].length}）</h4><ul>${g[k].map(r=>
+      `<li><a href="https://shop.petpark.com.tw/${esc(r.k)}" target="_blank" rel="noopener"><span class="cat">${CAT_NAME[r.cat]||''}</span>${esc(displayName(r.k))}</a><span class="v ${r.cls||''}">${r.v}</span></li>`).join('')}</ul></div>`).join('')}</div>`:'');
+  el.classList.remove('hide');
+}
+
+/* ---- scraped products that have no spec entry in DATA yet ---- */
+function renderExtra(){
+  const el=document.getElementById('extra'), known=new Set(DATA[active].products.map(keyOf));
+  const rest=Object.entries(LIVE).filter(([k,v])=>v.category===active&&!known.has(k))
+    .sort((a,b)=>(b[1].listed?1:0)-(a[1].listed?1:0)||(a[1].sale??0)-(b[1].sale??0));
+  if(!rest.length){el.classList.add('hide');el.innerHTML='';return;}
+  el.innerHTML=`<h2>已抓到、尚未整理規格的商品（${rest.length}）</h2>`+
+    `<p class="note">爬蟲自動發現的商品，價格與庫存每天更新，但還沒有功能規格，所以不在上方比較表中。要加入比較表，請在 <code>index.html</code> 的 <code>DATA.${active}.products</code> 補一筆。</p>`+
+    `<div class="xgrid">${rest.map(([k,v])=>{
+      const p={sale:v.sale,orig:v.orig,stock:v.stock,qty:v.qty,stale:v.stale,listed:v.listed,prevSale:v.prev_sale,lastChange:v.last_change};
+      return `<div class="xcard ${v.listed===false?'gone':''}"><div class="brandtag">${esc(k)}</div><div class="pname">${esc(dec(v.title)||k)}</div>`+
+        `<div class="price"><span class="now">${money(v.sale)}</span>${v.orig>v.sale?`<span class="was">${money(v.orig)}</span>`:''}</div>`+
+        `${delistedBadge(p)}${stockBadge(p)}${changeNote(p)}${trendBlock(k,v.sale)}`+
+        `<div style="margin-top:10px"><a class="linkbtn" href="https://shop.petpark.com.tw/${esc(k)}" target="_blank" rel="noopener">前往商品頁 ↗</a></div></div>`;
+    }).join('')}</div>`;
+  el.classList.remove('hide');
 }
 
 document.getElementById('sortBtn').addEventListener('click',()=>{order=order==='asc'?'desc':'asc';renderAll();});
@@ -397,6 +581,14 @@ function showUpdated(disp, ok){
   else{el.className='updated snap';
     el.innerHTML=`⚪ 目前為靜態快照（未載入即時價格）。將此檔與 <code>prices.json</code> 一同發佈到 GitHub Pages（同一網址）後，即會顯示每日更新的價格與庫存。`;}
 }
+async function loadHistory(){
+  try{
+    const r=await fetch('history.csv?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw 0;
+    HIST=parseHistory(await r.text());
+    renderAll(); renderRecent();
+  }catch(e){}
+}
 async function loadPrices(){
   try{
     const r=await fetch('prices.json?ts='+Date.now(),{cache:'no-store'});
@@ -408,7 +600,7 @@ async function loadPrices(){
   }catch(e){ showUpdated(null,false); }
 }
 renderAll();
-loadPrices();
+loadPrices().then(loadHistory);
 </script>
 </body>
 </html>
