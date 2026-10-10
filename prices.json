@@ -1,12 +1,31 @@
 {
-  "generated_at": "2026-10-09T09:51:09.376963+08:00",
-  "generated_at_display": "2026/10/09 09:51（台灣時間）",
+  "generated_at": "2026-10-10T09:34:34.305572+08:00",
+  "generated_at_display": "2026/10/10 09:34（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
-  "listed": 24,
-  "delisted": 4,
+  "listed": 23,
+  "delisted": 5,
   "ok": 28,
   "fail": 0,
+  "events": [
+    {
+      "key": "wp012213",
+      "name": "Homerun UVC殺菌無線水泵飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012213",
+      "sale": 1790,
+      "type": "delisted"
+    },
+    {
+      "key": "wp012213",
+      "name": "Homerun UVC殺菌無線水泵飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012213",
+      "sale": 1790,
+      "type": "soldout"
+    }
+  ],
+  "health": [],
   "items": {
     "wp012154": {
       "sale": 2380,
@@ -227,11 +246,11 @@
     "wp012213": {
       "sale": 1790,
       "orig": 25174,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 1990,
       "last_change": "2026/09/10",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Homerun UVC殺菌無線水泵飲水機",
       "stale": false
@@ -329,7 +348,7 @@
       "last_change": null,
       "listed": true,
       "category": "feeder",
-      "title": "Panasonic&#x20;&#x53F0;&#x7063;&#x88FD;&#x5BF5;&#x7269;&#x667A;&#x80FD;&#x8907;&#x5408;&#x5F0F;&#x651D;&#x5F71;&#x98F2;&#x6C34;&#x9935;&#x98DF;&#x6A5F;&#x20;CP-JNF04-W",
+      "title": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
       "stale": false
     },
     "wp006713": {
@@ -341,7 +360,7 @@
       "last_change": "2026/10/07",
       "listed": true,
       "category": "feeder",
-      "title": "Petkit&#x4F69;&#x5947;&#x20;&#x667A;&#x80FD;&#x5BF5;&#x7269;&#x9935;&#x98DF;&#x5668;SOLO&#x20;&#x6708;&#x5149;&#x767D;&#x20;&#x28;31.6&#x2A;16.7&#x2A;29.6&#x20;&#x516C;&#x5206;&#x29;",
+      "title": "Petkit佩奇 智能寵物餵食器SOLO 月光白 (31.6*16.7*29.6 公分)",
       "stale": false
     }
   }
