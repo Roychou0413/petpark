@@ -1,62 +1,13 @@
 {
-  "generated_at": "2026-10-11T08:44:18.306656+08:00",
-  "generated_at_display": "2026/10/11 08:44（台灣時間）",
+  "generated_at": "2026-10-12T09:05:16.945309+08:00",
+  "generated_at_display": "2026/10/12 09:05（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
   "listed": 24,
   "delisted": 4,
   "ok": 28,
   "fail": 0,
-  "events": [
-    {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 4988,
-      "type": "relisted"
-    },
-    {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 4988,
-      "type": "restock"
-    },
-    {
-      "key": "20761820",
-      "name": "carno 倉鼠飲水器 LS110",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/20761820",
-      "sale": 130,
-      "type": "relisted"
-    },
-    {
-      "key": "20761820",
-      "name": "carno 倉鼠飲水器 LS110",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/20761820",
-      "sale": 130,
-      "type": "restock"
-    },
-    {
-      "key": "wp013479",
-      "name": "Mattte UVC無線馬達飲水機 v1.2",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp013479",
-      "sale": 2999,
-      "type": "delisted"
-    },
-    {
-      "key": "wp013479",
-      "name": "Mattte UVC無線馬達飲水機 v1.2",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp013479",
-      "sale": 2999,
-      "type": "soldout"
-    }
-  ],
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
