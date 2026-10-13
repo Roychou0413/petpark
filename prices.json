@@ -1,13 +1,30 @@
 {
-  "generated_at": "2026-10-12T09:05:16.945309+08:00",
-  "generated_at_display": "2026/10/12 09:05（台灣時間）",
+  "generated_at": "2026-10-13T10:54:46.427899+08:00",
+  "generated_at_display": "2026/10/13 10:54（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
-  "listed": 24,
-  "delisted": 4,
+  "listed": 23,
+  "delisted": 5,
   "ok": 28,
   "fail": 0,
-  "events": [],
+  "events": [
+    {
+      "key": "wp001388",
+      "name": "Homerun 無線水泵飲水機三代",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp001388",
+      "sale": 1370,
+      "type": "delisted"
+    },
+    {
+      "key": "wp001388",
+      "name": "Homerun 無線水泵飲水機三代",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp001388",
+      "sale": 1370,
+      "type": "soldout"
+    }
+  ],
   "health": [],
   "items": {
     "20853471": {
@@ -145,11 +162,11 @@
     "wp001388": {
       "sale": 1370,
       "orig": 25252,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Homerun 無線水泵飲水機三代",
       "stale": false
