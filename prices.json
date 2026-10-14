@@ -1,28 +1,39 @@
 {
-  "generated_at": "2026-10-13T10:54:46.427899+08:00",
-  "generated_at_display": "2026/10/13 10:54（台灣時間）",
+  "generated_at": "2026-10-14T08:58:57.978325+08:00",
+  "generated_at_display": "2026/10/14 08:58（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
   "listed": 23,
   "delisted": 5,
-  "ok": 28,
-  "fail": 0,
+  "ok": 27,
+  "fail": 1,
   "events": [
     {
-      "key": "wp001388",
-      "name": "Homerun 無線水泵飲水機三代",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp001388",
-      "sale": 1370,
-      "type": "delisted"
+      "key": "wp008433",
+      "name": "Petkit SOLO 攝影版",
+      "category": "feeder",
+      "url": "https://shop.petpark.com.tw/wp008433",
+      "sale": 5965,
+      "type": "up",
+      "from": 4988
     },
     {
-      "key": "wp001388",
-      "name": "Homerun 無線水泵飲水機三代",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp001388",
-      "sale": 1370,
-      "type": "soldout"
+      "key": "wp013007",
+      "name": "Petkit MAX2 標準版",
+      "category": "litter",
+      "url": "https://shop.petpark.com.tw/wp013007",
+      "sale": 15960,
+      "type": "up",
+      "from": 12888
+    },
+    {
+      "key": "wp016808",
+      "name": "Petkit MAXPRO2 攝影版",
+      "category": "litter",
+      "url": "https://shop.petpark.com.tw/wp016808",
+      "sale": 22610,
+      "type": "up",
+      "from": 18888
     }
   ],
   "health": [],
@@ -64,12 +75,12 @@
       "stale": false
     },
     "wp008433": {
-      "sale": 4988,
+      "sale": 5965,
       "orig": 12851,
       "stock": "in",
       "qty": null,
-      "prev_sale": 5965,
-      "last_change": "2026/10/07",
+      "prev_sale": 4988,
+      "last_change": "2026/10/14",
       "listed": true,
       "category": "feeder",
       "title": "Petkit SOLO 攝影版",
@@ -313,7 +324,8 @@
       "listed": false,
       "category": "fountain",
       "title": "FURBULOUS CUBE 超濾飲水機",
-      "stale": false
+      "stale": true,
+      "error": "HTTP Error 404: Not Found"
     },
     "wp019640": {
       "sale": 1999,
@@ -340,24 +352,24 @@
       "stale": false
     },
     "wp013007": {
-      "sale": 12888,
+      "sale": 15960,
       "orig": 25153,
       "stock": "in",
       "qty": null,
-      "prev_sale": 15960,
-      "last_change": "2026/10/07",
+      "prev_sale": 12888,
+      "last_change": "2026/10/14",
       "listed": true,
       "category": "litter",
       "title": "Petkit MAX2 標準版",
       "stale": false
     },
     "wp016808": {
-      "sale": 18888,
+      "sale": 22610,
       "orig": 35493,
       "stock": "in",
       "qty": null,
-      "prev_sale": 22610,
-      "last_change": "2026/10/07",
+      "prev_sale": 18888,
+      "last_change": "2026/10/14",
       "listed": true,
       "category": "litter",
       "title": "Petkit MAXPRO2 攝影版",
