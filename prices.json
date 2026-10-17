@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-16T08:09:09.848996+08:00",
-  "generated_at_display": "2026/10/16 08:09（台灣時間）",
+  "generated_at": "2026-10-17T08:12:58.576498+08:00",
+  "generated_at_display": "2026/10/17 08:12（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
   "listed": 20,
@@ -9,12 +9,28 @@
   "fail": 1,
   "events": [
     {
+      "key": "wp015686",
+      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
+      "category": "feeder",
+      "url": "https://shop.petpark.com.tw/wp015686",
+      "sale": 9900,
+      "type": "delisted"
+    },
+    {
+      "key": "wp015686",
+      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
+      "category": "feeder",
+      "url": "https://shop.petpark.com.tw/wp015686",
+      "sale": 9900,
+      "type": "soldout"
+    },
+    {
       "key": "wp011970",
       "name": "Petkit MAX 真無線",
       "category": "fountain",
       "url": "https://shop.petpark.com.tw/wp011970",
       "sale": 3988,
-      "type": "delisted"
+      "type": "relisted"
     }
   ],
   "health": [],
@@ -94,11 +110,11 @@
     "wp015686": {
       "sale": 9900,
       "orig": 33122,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 12900,
       "last_change": "2026/10/15",
-      "listed": true,
+      "listed": false,
       "category": "feeder",
       "title": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
       "stale": false
@@ -254,7 +270,7 @@
       "qty": null,
       "prev_sale": 5585,
       "last_change": "2026/10/07",
-      "listed": false,
+      "listed": true,
       "category": "fountain",
       "title": "Petkit MAX 真無線",
       "stale": false
