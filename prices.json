@@ -1,28 +1,20 @@
 {
-  "generated_at": "2026-10-17T08:12:58.576498+08:00",
-  "generated_at_display": "2026/10/17 08:12（台灣時間）",
+  "generated_at": "2026-10-18T07:52:14.252985+08:00",
+  "generated_at_display": "2026/10/18 07:52（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 28,
-  "listed": 20,
-  "delisted": 8,
+  "listed": 18,
+  "delisted": 10,
   "ok": 27,
   "fail": 1,
   "events": [
     {
-      "key": "wp015686",
-      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp015686",
-      "sale": 9900,
+      "key": "wp005304",
+      "name": "Petkit SOLO 2 無線馬達",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp005304",
+      "sale": 2588,
       "type": "delisted"
-    },
-    {
-      "key": "wp015686",
-      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp015686",
-      "sale": 9900,
-      "type": "soldout"
     },
     {
       "key": "wp011970",
@@ -30,7 +22,7 @@
       "category": "fountain",
       "url": "https://shop.petpark.com.tw/wp011970",
       "sale": 3988,
-      "type": "relisted"
+      "type": "delisted"
     }
   ],
   "health": [],
@@ -186,7 +178,7 @@
       "qty": null,
       "prev_sale": 2830,
       "last_change": "2026/10/07",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Petkit SOLO 2 無線馬達",
       "stale": false
@@ -270,7 +262,7 @@
       "qty": null,
       "prev_sale": 5585,
       "last_change": "2026/10/07",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Petkit MAX 真無線",
       "stale": false
