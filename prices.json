@@ -1,28 +1,52 @@
 {
-  "generated_at": "2026-10-19T07:59:53.320157+08:00",
-  "generated_at_display": "2026/10/19 07:59（台灣時間）",
+  "generated_at": "2026-10-20T08:58:07.275350+08:00",
+  "generated_at_display": "2026/10/20 08:58（台灣時間）",
   "source": "shop.petpark.com.tw",
-  "count": 28,
-  "listed": 18,
-  "delisted": 10,
-  "ok": 27,
+  "count": 29,
+  "listed": 21,
+  "delisted": 8,
+  "ok": 28,
   "fail": 1,
   "events": [
     {
-      "key": "wp005304",
-      "name": "Petkit SOLO 2 無線馬達",
+      "key": "wp001388",
+      "name": "Homerun 無線水泵飲水機三代",
       "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp005304",
-      "sale": 2588,
-      "type": "soldout"
+      "url": "https://shop.petpark.com.tw/wp001388",
+      "sale": 1370,
+      "type": "relisted"
     },
     {
-      "key": "wp011970",
-      "name": "Petkit MAX 真無線",
+      "key": "wp001388",
+      "name": "Homerun 無線水泵飲水機三代",
       "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011970",
-      "sale": 3988,
-      "type": "soldout"
+      "url": "https://shop.petpark.com.tw/wp001388",
+      "sale": 1370,
+      "type": "restock"
+    },
+    {
+      "key": "wp012213",
+      "name": "Homerun UVC殺菌無線水泵飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012213",
+      "sale": 1990,
+      "type": "relisted"
+    },
+    {
+      "key": "wp012213",
+      "name": "Homerun UVC殺菌無線水泵飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012213",
+      "sale": 1990,
+      "type": "restock"
+    },
+    {
+      "key": "wp012212",
+      "name": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
+      "category": "feeder",
+      "url": "https://shop.petpark.com.tw/wp012212",
+      "sale": 2990,
+      "type": "new"
     }
   ],
   "health": [],
@@ -162,11 +186,11 @@
     "wp001388": {
       "sale": 1370,
       "orig": 25252,
-      "stock": "out",
+      "stock": "in",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": false,
+      "listed": true,
       "category": "fountain",
       "title": "Homerun 無線水泵飲水機三代",
       "stale": false
@@ -282,11 +306,11 @@
     "wp012213": {
       "sale": 1990,
       "orig": 25174,
-      "stock": "out",
+      "stock": "in",
       "qty": null,
       "prev_sale": 1790,
       "last_change": "2026/10/15",
-      "listed": false,
+      "listed": true,
       "category": "fountain",
       "title": "Homerun UVC殺菌無線水泵飲水機",
       "stale": false
@@ -362,6 +386,18 @@
       "listed": true,
       "category": "litter",
       "title": "Petkit MAXPRO2 攝影版",
+      "stale": false
+    },
+    "wp012212": {
+      "sale": 2990,
+      "orig": 25177,
+      "stock": "in",
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "feeder",
+      "title": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
       "stale": false
     }
   }
