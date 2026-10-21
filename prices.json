@@ -1,54 +1,13 @@
 {
-  "generated_at": "2026-10-20T08:58:07.275350+08:00",
-  "generated_at_display": "2026/10/20 08:58（台灣時間）",
+  "generated_at": "2026-10-21T08:27:16.149124+08:00",
+  "generated_at_display": "2026/10/21 08:27（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 21,
   "delisted": 8,
   "ok": 28,
   "fail": 1,
-  "events": [
-    {
-      "key": "wp001388",
-      "name": "Homerun 無線水泵飲水機三代",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp001388",
-      "sale": 1370,
-      "type": "relisted"
-    },
-    {
-      "key": "wp001388",
-      "name": "Homerun 無線水泵飲水機三代",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp001388",
-      "sale": 1370,
-      "type": "restock"
-    },
-    {
-      "key": "wp012213",
-      "name": "Homerun UVC殺菌無線水泵飲水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp012213",
-      "sale": 1990,
-      "type": "relisted"
-    },
-    {
-      "key": "wp012213",
-      "name": "Homerun UVC殺菌無線水泵飲水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp012213",
-      "sale": 1990,
-      "type": "restock"
-    },
-    {
-      "key": "wp012212",
-      "name": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp012212",
-      "sale": 2990,
-      "type": "new"
-    }
-  ],
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
@@ -121,6 +80,18 @@
       "listed": true,
       "category": "feeder",
       "title": "PetSnowy snow 智能餵食器",
+      "stale": false
+    },
+    "wp012212": {
+      "sale": 2990,
+      "orig": 25177,
+      "stock": "in",
+      "qty": null,
+      "prev_sale": null,
+      "last_change": null,
+      "listed": true,
+      "category": "feeder",
+      "title": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
       "stale": false
     },
     "wp015686": {
@@ -386,18 +357,6 @@
       "listed": true,
       "category": "litter",
       "title": "Petkit MAXPRO2 攝影版",
-      "stale": false
-    },
-    "wp012212": {
-      "sale": 2990,
-      "orig": 25177,
-      "stock": "in",
-      "qty": null,
-      "prev_sale": null,
-      "last_change": null,
-      "listed": true,
-      "category": "feeder",
-      "title": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
       "stale": false
     }
   }
