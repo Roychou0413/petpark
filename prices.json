@@ -1,13 +1,30 @@
 {
-  "generated_at": "2026-10-21T08:27:16.149124+08:00",
-  "generated_at_display": "2026/10/21 08:27（台灣時間）",
+  "generated_at": "2026-10-23T08:28:01.086332+08:00",
+  "generated_at_display": "2026/10/23 08:28（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 21,
-  "delisted": 8,
+  "listed": 20,
+  "delisted": 9,
   "ok": 28,
   "fail": 1,
-  "events": [],
+  "events": [
+    {
+      "key": "wp008433",
+      "name": "Petkit SOLO 攝影版",
+      "category": "feeder",
+      "url": "https://shop.petpark.com.tw/wp008433",
+      "sale": 4888,
+      "type": "delisted"
+    },
+    {
+      "key": "wp008433",
+      "name": "Petkit SOLO 攝影版",
+      "category": "feeder",
+      "url": "https://shop.petpark.com.tw/wp008433",
+      "sale": 4888,
+      "type": "soldout"
+    }
+  ],
   "health": [],
   "items": {
     "20853471": {
@@ -49,11 +66,11 @@
     "wp008433": {
       "sale": 4888,
       "orig": 12851,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 5965,
       "last_change": "2026/10/15",
-      "listed": true,
+      "listed": false,
       "category": "feeder",
       "title": "Petkit SOLO 攝影版",
       "stale": false
