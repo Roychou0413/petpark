@@ -1,28 +1,36 @@
 {
-  "generated_at": "2026-10-23T08:28:01.086332+08:00",
-  "generated_at_display": "2026/10/23 08:28（台灣時間）",
+  "generated_at": "2026-10-24T08:23:21.516657+08:00",
+  "generated_at_display": "2026/10/24 08:23（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 20,
-  "delisted": 9,
+  "listed": 17,
+  "delisted": 12,
   "ok": 28,
   "fail": 1,
   "events": [
     {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
+      "key": "wp012154",
+      "name": "PetSnowy snow 智能餵食器",
       "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 4888,
+      "url": "https://shop.petpark.com.tw/wp012154",
+      "sale": 2380,
       "type": "delisted"
     },
     {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 4888,
-      "type": "soldout"
+      "key": "20780012",
+      "name": "TOM CAT 簡派飲水機 2.5L",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/20780012",
+      "sale": 499,
+      "type": "delisted"
+    },
+    {
+      "key": "wp012213",
+      "name": "Homerun UVC殺菌無線水泵飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012213",
+      "sale": 1990,
+      "type": "delisted"
     }
   ],
   "health": [],
@@ -94,7 +102,7 @@
       "qty": null,
       "prev_sale": 2000,
       "last_change": "2026/09/10",
-      "listed": true,
+      "listed": false,
       "category": "feeder",
       "title": "PetSnowy snow 智能餵食器",
       "stale": false
@@ -166,7 +174,7 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "TOM CAT 簡派飲水機 2.5L",
       "stale": false
@@ -298,7 +306,7 @@
       "qty": null,
       "prev_sale": 1790,
       "last_change": "2026/10/15",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Homerun UVC殺菌無線水泵飲水機",
       "stale": false
