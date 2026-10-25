@@ -1,52 +1,20 @@
 {
-  "generated_at": "2026-10-25T08:06:27.185049+08:00",
-  "generated_at_display": "2026/10/25 08:06（台灣時間）",
+  "generated_at": "2026-10-26T07:57:22.674964+08:00",
+  "generated_at_display": "2026/10/26 07:57（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 16,
-  "delisted": 13,
+  "listed": 15,
+  "delisted": 14,
   "ok": 28,
   "fail": 1,
   "events": [
     {
-      "key": "wp012154",
-      "name": "PetSnowy snow 智能餵食器",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp012154",
-      "sale": 2380,
-      "type": "soldout"
-    },
-    {
-      "key": "20780012",
-      "name": "TOM CAT 簡派飲水機 2.5L",
+      "key": "wp011051",
+      "name": "Petkit W4X-UVC 循環活水機",
       "category": "fountain",
-      "url": "https://shop.petpark.com.tw/20780012",
-      "sale": 499,
-      "type": "soldout"
-    },
-    {
-      "key": "wp001388",
-      "name": "Homerun 無線水泵飲水機三代",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp001388",
-      "sale": 1370,
+      "url": "https://shop.petpark.com.tw/wp011051",
+      "sale": 3988,
       "type": "delisted"
-    },
-    {
-      "key": "wp001388",
-      "name": "Homerun 無線水泵飲水機三代",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp001388",
-      "sale": 1370,
-      "type": "soldout"
-    },
-    {
-      "key": "wp012213",
-      "name": "Homerun UVC殺菌無線水泵飲水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp012213",
-      "sale": 1990,
-      "type": "soldout"
     }
   ],
   "health": [],
@@ -286,7 +254,7 @@
       "qty": null,
       "prev_sale": 3888,
       "last_change": "2026/10/15",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Petkit W4X-UVC 循環活水機",
       "stale": false
