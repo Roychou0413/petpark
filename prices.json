@@ -1,22 +1,13 @@
 {
-  "generated_at": "2026-10-27T09:17:58.969809+08:00",
-  "generated_at_display": "2026/10/27 09:17（台灣時間）",
+  "generated_at": "2026-10-28T09:02:35.411500+08:00",
+  "generated_at_display": "2026/10/28 09:02（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 15,
   "delisted": 14,
   "ok": 28,
   "fail": 1,
-  "events": [
-    {
-      "key": "wp011051",
-      "name": "Petkit W4X-UVC 循環活水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011051",
-      "sale": 3988,
-      "type": "soldout"
-    }
-  ],
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
