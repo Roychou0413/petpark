@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-29T09:38:44.474264+08:00",
-  "generated_at_display": "2026/10/29 09:38（台灣時間）",
+  "generated_at": "2026-10-30T09:43:42.119619+08:00",
+  "generated_at_display": "2026/10/30 09:43（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 14,
@@ -14,7 +14,7 @@
       "category": "feeder",
       "url": "https://shop.petpark.com.tw/wp012212",
       "sale": 2990,
-      "type": "delisted"
+      "type": "soldout"
     }
   ],
   "health": [],
@@ -94,7 +94,7 @@
     "wp012212": {
       "sale": 2990,
       "orig": 25177,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
