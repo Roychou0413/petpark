@@ -1,22 +1,13 @@
 {
-  "generated_at": "2026-10-30T09:43:42.119619+08:00",
-  "generated_at_display": "2026/10/30 09:43（台灣時間）",
+  "generated_at": "2026-10-31T09:27:20.956600+08:00",
+  "generated_at_display": "2026/10/31 09:27（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 14,
   "delisted": 15,
   "ok": 28,
   "fail": 1,
-  "events": [
-    {
-      "key": "wp012212",
-      "name": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp012212",
-      "sale": 2990,
-      "type": "soldout"
-    }
-  ],
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
