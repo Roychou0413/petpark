@@ -1,86 +1,13 @@
 {
-  "generated_at": "2026-11-01T08:48:35.219137+08:00",
-  "generated_at_display": "2026/11/01 08:48（台灣時間）",
+  "generated_at": "2026-11-02T09:22:18.043456+08:00",
+  "generated_at_display": "2026/11/02 09:22（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 14,
   "delisted": 15,
   "ok": 28,
   "fail": 1,
-  "events": [
-    {
-      "key": "20853471",
-      "name": "Petkit 不鏽鋼餵食器 3L",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/20853471",
-      "sale": 8990,
-      "type": "up",
-      "from": 7288
-    },
-    {
-      "key": "20853488",
-      "name": "Petkit 不鏽鋼餵食器 5L",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/20853488",
-      "sale": 9480,
-      "type": "up",
-      "from": 7688
-    },
-    {
-      "key": "wp006713",
-      "name": "Petkit佩奇 智能寵物餵食器SOLO 月光白 (31.6*16.7*29.6 公分)",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp006713",
-      "sale": 5210,
-      "type": "up",
-      "from": 3388
-    },
-    {
-      "key": "wp008434",
-      "name": "Petkit 雙子星 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008434",
-      "sale": 8150,
-      "type": "up",
-      "from": 5988
-    },
-    {
-      "key": "wp005304",
-      "name": "Petkit SOLO 2 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp005304",
-      "sale": 2830,
-      "type": "up",
-      "from": 2588
-    },
-    {
-      "key": "wp006712",
-      "name": "Petkit SOLO SE 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp006712",
-      "sale": 1980,
-      "type": "up",
-      "from": 1588
-    },
-    {
-      "key": "wp011051",
-      "name": "Petkit W4X-UVC 循環活水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011051",
-      "sale": 4730,
-      "type": "up",
-      "from": 3988
-    },
-    {
-      "key": "wp011970",
-      "name": "Petkit MAX 真無線",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011970",
-      "sale": 5585,
-      "type": "up",
-      "from": 3988
-    }
-  ],
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
