@@ -1,13 +1,30 @@
 {
-  "generated_at": "2026-11-02T09:22:18.043456+08:00",
-  "generated_at_display": "2026/11/02 09:22（台灣時間）",
+  "generated_at": "2026-11-03T11:22:12.633909+08:00",
+  "generated_at_display": "2026/11/03 11:22（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 14,
-  "delisted": 15,
+  "listed": 13,
+  "delisted": 16,
   "ok": 28,
   "fail": 1,
-  "events": [],
+  "events": [
+    {
+      "key": "wp010867",
+      "name": "Hu'RuRu 無線馬達飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp010867",
+      "sale": 1390,
+      "type": "delisted"
+    },
+    {
+      "key": "wp010867",
+      "name": "Hu'RuRu 無線馬達飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp010867",
+      "sale": 1390,
+      "type": "soldout"
+    }
+  ],
   "health": [],
   "items": {
     "20853471": {
@@ -229,11 +246,11 @@
     "wp010867": {
       "sale": 1390,
       "orig": 1390,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Hu'RuRu 無線馬達飲水機",
       "stale": false
