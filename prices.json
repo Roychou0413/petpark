@@ -1,110 +1,13 @@
 {
-  "generated_at": "2026-11-04T10:01:04.931699+08:00",
-  "generated_at_display": "2026/11/04 10:01（台灣時間）",
+  "generated_at": "2026-11-05T10:03:07.556902+08:00",
+  "generated_at_display": "2026/11/05 10:03（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 19,
   "delisted": 10,
-  "ok": 28,
-  "fail": 1,
-  "events": [
-    {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 4888,
-      "type": "relisted"
-    },
-    {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 4888,
-      "type": "restock"
-    },
-    {
-      "key": "wp015686",
-      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp015686",
-      "sale": 9900,
-      "type": "relisted"
-    },
-    {
-      "key": "wp015686",
-      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp015686",
-      "sale": 9900,
-      "type": "restock"
-    },
-    {
-      "key": "wp005304",
-      "name": "Petkit SOLO 2 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp005304",
-      "sale": 2830,
-      "type": "relisted"
-    },
-    {
-      "key": "wp005304",
-      "name": "Petkit SOLO 2 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp005304",
-      "sale": 2830,
-      "type": "restock"
-    },
-    {
-      "key": "wp006712",
-      "name": "Petkit SOLO SE 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp006712",
-      "sale": 1980,
-      "type": "relisted"
-    },
-    {
-      "key": "wp006712",
-      "name": "Petkit SOLO SE 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp006712",
-      "sale": 1980,
-      "type": "restock"
-    },
-    {
-      "key": "wp011051",
-      "name": "Petkit W4X-UVC 循環活水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011051",
-      "sale": 4730,
-      "type": "relisted"
-    },
-    {
-      "key": "wp011051",
-      "name": "Petkit W4X-UVC 循環活水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011051",
-      "sale": 4730,
-      "type": "restock"
-    },
-    {
-      "key": "wp011970",
-      "name": "Petkit MAX 真無線",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011970",
-      "sale": 5585,
-      "type": "relisted"
-    },
-    {
-      "key": "wp011970",
-      "name": "Petkit MAX 真無線",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp011970",
-      "sale": 5585,
-      "type": "restock"
-    }
-  ],
+  "ok": 27,
+  "fail": 2,
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
@@ -297,7 +200,8 @@
       "listed": false,
       "category": "fountain",
       "title": "Pawaii 無線飲水機 紅 2L",
-      "stale": false
+      "stale": true,
+      "error": "HTTP Error 404: Not Found"
     },
     "wp008960": {
       "sale": 1980,
