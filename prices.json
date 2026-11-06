@@ -1,13 +1,30 @@
 {
-  "generated_at": "2026-11-05T10:03:07.556902+08:00",
-  "generated_at_display": "2026/11/05 10:03（台灣時間）",
+  "generated_at": "2026-11-06T10:05:42.948203+08:00",
+  "generated_at_display": "2026/11/06 10:05（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 19,
-  "delisted": 10,
+  "listed": 18,
+  "delisted": 11,
   "ok": 27,
   "fail": 2,
-  "events": [],
+  "events": [
+    {
+      "key": "wp012155",
+      "name": "PetSnowy snow 智能飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012155",
+      "sale": 1780,
+      "type": "delisted"
+    },
+    {
+      "key": "wp012155",
+      "name": "PetSnowy snow 智能飲水機",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp012155",
+      "sale": 1780,
+      "type": "soldout"
+    }
+  ],
   "health": [],
   "items": {
     "20853471": {
@@ -266,11 +283,11 @@
     "wp012155": {
       "sale": 1780,
       "orig": 1780,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 1599,
       "last_change": "2026/09/10",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "PetSnowy snow 智能飲水機",
       "stale": false
