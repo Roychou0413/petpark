@@ -1,28 +1,20 @@
 {
-  "generated_at": "2026-11-06T10:05:42.948203+08:00",
-  "generated_at_display": "2026/11/06 10:05（台灣時間）",
+  "generated_at": "2026-11-07T09:43:00.368801+08:00",
+  "generated_at_display": "2026/11/07 09:43（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 18,
-  "delisted": 11,
+  "listed": 17,
+  "delisted": 12,
   "ok": 27,
   "fail": 2,
   "events": [
     {
-      "key": "wp012155",
-      "name": "PetSnowy snow 智能飲水機",
+      "key": "wp008961",
+      "name": "Peile 水分子智能飲水機 UV版",
       "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp012155",
-      "sale": 1780,
+      "url": "https://shop.petpark.com.tw/wp008961",
+      "sale": 2250,
       "type": "delisted"
-    },
-    {
-      "key": "wp012155",
-      "name": "PetSnowy snow 智能飲水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp012155",
-      "sale": 1780,
-      "type": "soldout"
     }
   ],
   "health": [],
@@ -239,7 +231,7 @@
       "qty": null,
       "prev_sale": null,
       "last_change": null,
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Peile 水分子智能飲水機 UV版",
       "stale": false
