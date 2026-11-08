@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-07T09:43:00.368801+08:00",
-  "generated_at_display": "2026/11/07 09:43（台灣時間）",
+  "generated_at": "2026-11-08T09:11:56.041044+08:00",
+  "generated_at_display": "2026/11/08 09:11（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 17,
@@ -14,7 +14,7 @@
       "category": "fountain",
       "url": "https://shop.petpark.com.tw/wp008961",
       "sale": 2250,
-      "type": "delisted"
+      "type": "soldout"
     }
   ],
   "health": [],
@@ -227,7 +227,7 @@
     "wp008961": {
       "sale": 2250,
       "orig": 25213,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": null,
       "last_change": null,
