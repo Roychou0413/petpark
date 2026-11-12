@@ -1,95 +1,13 @@
 {
-  "generated_at": "2026-11-11T09:45:01.274546+08:00",
-  "generated_at_display": "2026/11/11 09:45（台灣時間）",
+  "generated_at": "2026-11-12T10:45:28.877593+08:00",
+  "generated_at_display": "2026/11/12 10:45（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
   "listed": 17,
   "delisted": 12,
   "ok": 27,
   "fail": 2,
-  "events": [
-    {
-      "key": "wp008433",
-      "name": "Petkit SOLO 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008433",
-      "sale": 5965,
-      "type": "up",
-      "from": 4888
-    },
-    {
-      "key": "wp008434",
-      "name": "Petkit 雙子星 攝影版",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp008434",
-      "sale": 5888,
-      "type": "down",
-      "from": 8150
-    },
-    {
-      "key": "wp012154",
-      "name": "PetSnowy snow 智能餵食器",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp012154",
-      "sale": 2000,
-      "type": "down",
-      "from": 2380
-    },
-    {
-      "key": "wp012212",
-      "name": "Homerun霍曼 寵物餵食器(陶瓷)(23.1*19.5*45.9公分)",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp012212",
-      "sale": 2790,
-      "type": "down",
-      "from": 2990
-    },
-    {
-      "key": "wp015686",
-      "name": "Panasonic 台灣製寵物智能複合式攝影飲水餵食機 CP-JNF04-W",
-      "category": "feeder",
-      "url": "https://shop.petpark.com.tw/wp015686",
-      "sale": 12900,
-      "type": "up",
-      "from": 9900
-    },
-    {
-      "key": "wp005304",
-      "name": "Petkit SOLO 2 無線馬達",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp005304",
-      "sale": 2488,
-      "type": "down",
-      "from": 2830
-    },
-    {
-      "key": "wp012155",
-      "name": "PetSnowy snow 智能飲水機",
-      "category": "fountain",
-      "url": "https://shop.petpark.com.tw/wp012155",
-      "sale": 1599,
-      "type": "down",
-      "from": 1780
-    },
-    {
-      "key": "wp012158",
-      "name": "PetSnowy 智慧貓砂盆 除臭款",
-      "category": "litter",
-      "url": "https://shop.petpark.com.tw/wp012158",
-      "sale": 12800,
-      "type": "down",
-      "from": 19800
-    },
-    {
-      "key": "wp013007",
-      "name": "Petkit MAX2 標準版",
-      "category": "litter",
-      "url": "https://shop.petpark.com.tw/wp013007",
-      "sale": 15960,
-      "type": "up",
-      "from": 12788
-    }
-  ],
+  "events": [],
   "health": [],
   "items": {
     "20853471": {
