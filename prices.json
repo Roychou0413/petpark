@@ -1,13 +1,46 @@
 {
-  "generated_at": "2026-11-12T10:45:28.877593+08:00",
-  "generated_at_display": "2026/11/12 10:45（台灣時間）",
+  "generated_at": "2026-11-13T10:28:37.903055+08:00",
+  "generated_at_display": "2026/11/13 10:28（台灣時間）",
   "source": "shop.petpark.com.tw",
   "count": 29,
-  "listed": 17,
-  "delisted": 12,
+  "listed": 15,
+  "delisted": 14,
   "ok": 27,
   "fail": 2,
-  "events": [],
+  "events": [
+    {
+      "key": "wp005304",
+      "name": "Petkit SOLO 2 無線馬達",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp005304",
+      "sale": 2488,
+      "type": "delisted"
+    },
+    {
+      "key": "wp005304",
+      "name": "Petkit SOLO 2 無線馬達",
+      "category": "fountain",
+      "url": "https://shop.petpark.com.tw/wp005304",
+      "sale": 2488,
+      "type": "soldout"
+    },
+    {
+      "key": "wp016808",
+      "name": "Petkit MAXPRO2 攝影版",
+      "category": "litter",
+      "url": "https://shop.petpark.com.tw/wp016808",
+      "sale": 18788,
+      "type": "delisted"
+    },
+    {
+      "key": "wp016808",
+      "name": "Petkit MAXPRO2 攝影版",
+      "category": "litter",
+      "url": "https://shop.petpark.com.tw/wp016808",
+      "sale": 18788,
+      "type": "soldout"
+    }
+  ],
   "health": [],
   "items": {
     "20853471": {
@@ -169,11 +202,11 @@
     "wp005304": {
       "sale": 2488,
       "orig": 12866,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 2830,
       "last_change": "2026/11/11",
-      "listed": true,
+      "listed": false,
       "category": "fountain",
       "title": "Petkit SOLO 2 無線馬達",
       "stale": false
@@ -351,11 +384,11 @@
     "wp016808": {
       "sale": 18788,
       "orig": 35493,
-      "stock": "in",
+      "stock": "out",
       "qty": null,
       "prev_sale": 22610,
       "last_change": "2026/10/15",
-      "listed": true,
+      "listed": false,
       "category": "litter",
       "title": "Petkit MAXPRO2 攝影版",
       "stale": false
